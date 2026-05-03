@@ -1,6 +1,978 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bijaya Gautam — Tech Leader & Entrepreneur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0e10;
+    --bg2: #141519;
+    --bg3: #1c1d22;
+    --amber: #e8a020;
+    --amber-light: #f5c563;
+    --amber-dim: #a06a10;
+    --text: #e8e4d8;
+    --text-muted: #8a8578;
+    --text-dim: #5a5650;
+    --border: rgba(232, 160, 32, 0.15);
+    --border-subtle: rgba(255,255,255,0.06);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* Nav */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(13,14,16,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  nav .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--amber);
+    letter-spacing: 0.02em;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  nav ul a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--amber); }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(232,160,32,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-text {}
+
+  .hero-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title-italic {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin: 1.5rem 0 2.5rem;
+    max-width: 420px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .hero-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-contacts a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: color 0.2s;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .hero-contacts a:hover { color: var(--amber); }
+  .hero-contacts .icon { color: var(--amber-dim); font-size: 11px; }
+
+  .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: #0d0e10;
+    border: 1px solid var(--amber);
+  }
+  .btn-primary:hover { background: var(--amber-light); border-color: var(--amber-light); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-subtle);
+  }
+  .btn-outline:hover { border-color: var(--amber); color: var(--amber); }
+
+  /* Hero right side — stat cards */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .stat-card {
+    background: var(--bg2);
+    padding: 1.75rem;
+    transition: background 0.2s;
+  }
+  .stat-card:hover { background: var(--bg3); }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Section shared */
+  section {
+    padding: 5rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 3rem;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 0 0 5rem;
+  }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    margin-bottom: 1.25rem;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .about-text p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .about-aside {}
+
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 0.3rem 0.8rem;
+    background: var(--bg3);
+    color: var(--amber-dim);
+    border: 1px solid var(--border);
+    letter-spacing: 0.05em;
+  }
+
+  .edu-card {
+    background: var(--bg2);
+    border: 1px solid var(--border-subtle);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    border-left: 2px solid var(--amber-dim);
+  }
+
+  .edu-card h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .edu-card p {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* Experience timeline */
+  .experience-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 3rem;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--amber-dim), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3.5rem;
+    padding-left: 2.5rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 0.5rem;
+    width: 9px;
+    height: 9px;
+    border: 1px solid var(--amber);
+    background: var(--bg);
+    transform: rotate(45deg);
+  }
+
+  .timeline-item.current::before {
+    background: var(--amber);
+  }
+
+  .timeline-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .timeline-company {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-role {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .timeline-period {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    margin-top: 0.3rem;
+  }
+
+  .timeline-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-top: 0.75rem;
+    max-width: 640px;
+  }
+
+  .timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+
+  .tag-sm {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 0.2rem 0.6rem;
+    background: var(--bg3);
+    color: var(--text-dim);
+    border: 1px solid var(--border-subtle);
+  }
+
+  /* Skills */
+  .skills-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 5rem 0;
+  }
+
+  .skills-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .skill-cat {
+    background: var(--bg2);
+    padding: 1.75rem;
+  }
+
+  .skill-cat h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .skill-list li {
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .skill-list li::before {
+    content: '—';
+    color: var(--amber-dim);
+    font-size: 11px;
+  }
+
+  /* Highlights */
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .highlight-card {
+    background: var(--bg2);
+    padding: 2rem 1.75rem;
+    transition: background 0.2s;
+  }
+  .highlight-card:hover { background: var(--bg3); }
+
+  .highlight-icon {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .highlight-card h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .highlight-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border-subtle);
+    padding: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  footer .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+  }
+
+  footer .footer-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  footer a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--amber); }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { gap: 1.5rem; }
+    .hero { padding: 5rem 1.5rem 3rem; }
+    .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    section, .experience-section, .skills-inner { padding: 3.5rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .highlights-grid { grid-template-columns: 1fr; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  }
+
+  /* Scroll animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
 <body>
-  <h1>Hello from bijaya gautam to the World!</h1>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">BG</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-label">Tech Leader · Entrepreneur · Nepal</div>
+      <h1>Bijaya<br><span class="hero-title-italic">Gautam</span></h1>
+      <p class="hero-subtitle">
+        17+ years building large-scale software systems at <strong>Apple</strong> and <strong>Qualcomm</strong>. 
+        Now shaping Nepal's tech future as founder, advisor, and voice on Web3 &amp; Information Security.
+      </p>
+      <div class="hero-contacts">
+        <a href="mailto:ncbijaya@gmail.com"><span class="icon">✉</span> ncbijaya@gmail.com</a>
+        <a href="tel:+9779841373753"><span class="icon">◎</span> +977 9841373753</a>
+        <a href="https://www.linkedin.com/in/bijayagautam" target="_blank" rel="noopener"><span class="icon">↗</span> linkedin.com/in/bijayagautam</a>
+        <a href="#"><span class="icon">◉</span> Kathmandu, Nepal</a>
+      </div>
+      <div class="btn-group">
+        <a href="mailto:ncbijaya@gmail.com" class="btn btn-primary">Get in touch</a>
+        <a href="https://www.linkedin.com/in/bijayagautam" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-stats fade-in">
+      <div class="stat-card">
+        <div class="stat-num">17+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Apple Architect Roles</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">250+</div>
+        <div class="stat-label">TB Data Managed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Professional Network</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="fade-in">
+  <div class="section-label">// 01 — Profile</div>
+  <h2>Builder. Architect.<br><em style="font-style:italic;color:var(--amber)">Entrepreneur.</em></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I build products and the teams to solve hard problems. My toolbox spans <strong>ICT Policy Making</strong>, 
+        Product Roadmaps, <strong>Large Scale Software Architecture</strong>, Software Development, Quality of Service, 
+        Integration, Commercialization, and SLA delivery across 17+ years of hands-on engineering leadership.
+      </p>
+      <p>
+        As <strong>Architect</strong> at Apple Inc., I led Identity Management, Information Security, and Big Data Services 
+        — working on systems that process hundreds of terabytes of data daily. At Qualcomm, I designed Big Data solutions 
+        for hosted VoIP platforms serving major U.S. and Mexican wireless operators.
+      </p>
+      <p>
+        Back in Nepal, I founded <strong>Sayapatri Technology Pvt. Ltd.</strong>, serve on the Ministry of Home Affairs 
+        Emergency Response committee, and advise ktmbees — a Kathmandu-based tech initiative. I speak at 
+        <strong>Podcasts, Tech Fests</strong> and international webinars on Crypto, Web3, and Information Security.
+      </p>
+      <p>
+        I hold an <strong>Executive Leadership Certificate (2019)</strong> and a <strong>Product Management Certificate (2018)</strong> 
+        from the University of California, Berkeley, and an MS in Engineering from Lamar University.
+      </p>
+    </div>
+    <div class="about-aside">
+      <div style="margin-bottom:1.75rem;">
+        <div class="section-label" style="margin-bottom:0.75rem;">Core domains</div>
+        <div class="about-tags">
+          <span class="tag">Information Security</span>
+          <span class="tag">Big Data</span>
+          <span class="tag">AWS Cloud</span>
+          <span class="tag">Product Management</span>
+          <span class="tag">Web 3.0</span>
+          <span class="tag">Crypto</span>
+          <span class="tag">Identity Management</span>
+          <span class="tag">Data Science</span>
+          <span class="tag">ICT Policy</span>
+          <span class="tag">DevOps</span>
+        </div>
+      </div>
+      <div class="section-label" style="margin-bottom:0.75rem;">Education</div>
+      <div class="edu-card">
+        <h4>UC Berkeley</h4>
+        <p>Executive Leadership · 2019<br>Product Management · 2018</p>
+      </div>
+      <div class="edu-card">
+        <h4>Lamar University</h4>
+        <p>MS Engineering · 2009–2010</p>
+      </div>
+      <div class="edu-card">
+        <h4>South Dakota State University</h4>
+        <p>Graduate Studies</p>
+      </div>
+      <div class="edu-card">
+        <h4>Kathmandu University</h4>
+        <p>BE Electronics Engineering · 2002–2006</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="max-width:1100px;margin:0 auto;padding:0 3rem;"><div style="height:1px;background:rgba(255,255,255,0.06);"></div></div>
+
+<!-- HIGHLIGHTS -->
+<section style="padding-top:0;" class="fade-in">
+  <div class="highlights-grid">
+    <div class="highlight-card">
+      <span class="highlight-icon">◈</span>
+      <h3>Apple Inc. — Triple Architect</h3>
+      <p>Served as Architect across three high-impact domains: Identity Management, Information Security, and Big Data Services — all within Apple's Cupertino engineering org.</p>
+    </div>
+    <div class="highlight-card">
+      <span class="highlight-icon">◈</span>
+      <h3>Big Data at Qualcomm</h3>
+      <p>Designed Big Data Solutions for VoIP-based push-to-talk platforms serving major U.S. and Mexican wireless operators. Built pipelines managing 250+ TB of daily data.</p>
+    </div>
+    <div class="highlight-card">
+      <span class="highlight-icon">◈</span>
+      <h3>Nepal Tech Ecosystem</h3>
+      <p>Founder of Sayapatri Technology, board advisor at ktmbees and Global Nepali Professional Network, Ministry of Home Affairs IERS committee member, and podcaster at 977Podcast.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<div id="experience" class="experience-section fade-in">
+  <div class="section-label">// 02 — Career</div>
+  <h2>Work<br><em style="font-style:italic;color:var(--amber)">Experience</em></h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item current">
+      <div class="timeline-company">Sayapatri Technology Pvt. Ltd.</div>
+      <div class="timeline-header">
+        <div class="timeline-role">Founder &amp; Director</div>
+        <div class="timeline-period">2020 — Present · Kathmandu, NP</div>
+      </div>
+      <p class="timeline-desc">
+        Founded and leading a Nepal-based technology company delivering cutting-edge IT solutions. Driving innovation 
+        and building the next generation of tech talent in Nepal's ecosystem.
+      </p>
+      <div class="timeline-tags">
+        <span class="tag-sm">Entrepreneurship</span><span class="tag-sm">Product</span><span class="tag-sm">Leadership</span>
+      </div>
+    </div>
+
+    <div class="timeline-item current">
+      <div class="timeline-company">ktmbees</div>
+      <div class="timeline-header">
+        <div class="timeline-role">Advisor Board Member</div>
+        <div class="timeline-period">2020 — Present · Kathmandu, NP</div>
+      </div>
+      <p class="timeline-desc">
+        Strategic advisor supporting ktmbees' growth as a tech platform and community in Nepal. 
+        Contributing expertise in architecture, product, and international tech ecosystems.
+      </p>
+      <div class="timeline-tags">
+        <span class="tag-sm">Advisory</span><span class="tag-sm">Strategy</span>
+      </div>
+    </div>
+
+    <div class="timeline-item current">
+      <div class="timeline-company">Ministry of Home Affairs, Nepal</div>
+      <div class="timeline-header">
+        <div class="timeline-role">Committee Member — IERS</div>
+        <div class="timeline-period">Feb 2024 — Present · Kathmandu, NP</div>
+      </div>
+      <p class="timeline-desc">
+        Serving as Committee Member on the Integrated Emergency Response System (IERS), 
+        contributing to ICT policy-making, emergency communication architecture, and inter-agency coordination 
+        with Home Affairs, Health, Telecom, and rescue services.
+      </p>
+      <div class="timeline-tags">
+        <span class="tag-sm">ICT Policy</span><span class="tag-sm">Emergency Systems</span><span class="tag-sm">Government</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-company">977Podcast</div>
+      <div class="timeline-header">
+        <div class="timeline-role">Founder &amp; Podcaster</div>
+        <div class="timeline-period">Ongoing · Nepal</div>
+      </div>
+      <p class="timeline-desc">
+        Hosting a tech-focused podcast for the Nepali diaspora and community, covering topics 
+        in Web3, Crypto, Information Security, and entrepreneurship. Judge and panelist at international tech fests.
+      </p>
+      <div class="timeline-tags">
+        <span class="tag-sm">Web3</span><span class="tag-sm">Crypto</span><span class="tag-sm">InfoSec</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-company">Apple Inc.</div>
+      <div class="timeline-header">
+        <div class="timeline-role">Architect — Identity Management / Information Security / Big Data</div>
+        <div class="timeline-period">2014 — 2020 · Cupertino, CA</div>
+      </div>
+      <p class="timeline-desc">
+        Served in three consecutive Architect roles at Apple, leading the architecture of enterprise-scale systems. 
+        Built the Recruiter and Applicant Platform (RAMP) serving employees and vendors. Designed Apple's ASEP event pipeline 
+        for fraud and threat detection. Led Big Data infrastructure handling 250+ TB of daily data using Hadoop, Spark, 
+        Cloudera and Hortonworks — with both onsite and offshore teams in Cupertino.
+      </p>
+      <div class="timeline-tags">
+        <span class="tag-sm">Identity Management</span><span class="tag-sm">Information Security</span>
+        <span class="tag-sm">Hadoop</span><span class="tag-sm">Spark</span><span class="tag-sm">Big Data</span>
+        <span class="tag-sm">Cloudera</span><span class="tag-sm">Fraud Detection</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-company">Qualcomm</div>
+      <div class="timeline-header">
+        <div class="timeline-role">Big Data Solutions Architect / Senior Engineer</div>
+        <div class="timeline-period">2011 — 2014 · San Diego, CA</div>
+      </div>
+      <p class="timeline-desc">
+        Designed and delivered Big Data solutions for hosted and managed VoIP-based push-to-talk platforms 
+        for major U.S. and Mexican wireless operators. Architected large-scale data ingestion and analytics pipelines.
+      </p>
+      <div class="timeline-tags">
+        <span class="tag-sm">Big Data</span><span class="tag-sm">VoIP</span><span class="tag-sm">Hadoop</span>
+        <span class="tag-sm">Scala</span><span class="tag-sm">Java</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-company">Intuit</div>
+      <div class="timeline-header">
+        <div class="timeline-role">System Engineer</div>
+        <div class="timeline-period">2010 — 2011 · Mountain View, CA</div>
+      </div>
+      <p class="timeline-desc">
+        Systems engineering and platform work at Intuit. Built and maintained large-scale infrastructure 
+        supporting financial software products used by millions of customers.
+      </p>
+      <div class="timeline-tags">
+        <span class="tag-sm">Systems Engineering</span><span class="tag-sm">Java</span><span class="tag-sm">Linux</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-company">Lamar University</div>
+      <div class="timeline-header">
+        <div class="timeline-role">Research Assistant</div>
+        <div class="timeline-period">2009 — 2010 · Beaumont, TX</div>
+      </div>
+      <p class="timeline-desc">
+        Graduate research assistantship while completing MS in Engineering. Research focused on distributed 
+        systems and data processing.
+      </p>
+      <div class="timeline-tags">
+        <span class="tag-sm">Research</span><span class="tag-sm">Distributed Systems</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills" class="skills-section fade-in">
+  <div class="skills-inner">
+    <div class="section-label">// 03 — Capabilities</div>
+    <h2>Skills &amp;<br><em style="font-style:italic;color:var(--amber)">Expertise</em></h2>
+    <div class="skills-grid">
+      <div class="skill-cat">
+        <h4>Architecture &amp; Engineering</h4>
+        <ul class="skill-list">
+          <li>Large Scale Software Architecture</li>
+          <li>System Design &amp; Integration</li>
+          <li>Distributed Systems</li>
+          <li>SLA &amp; QoS Management</li>
+          <li>Disaster Recovery (DR/BCP)</li>
+        </ul>
+      </div>
+      <div class="skill-cat">
+        <h4>Big Data &amp; Cloud</h4>
+        <ul class="skill-list">
+          <li>Hadoop / Spark / Kafka</li>
+          <li>Cloudera / Hortonworks</li>
+          <li>AWS Cloud Ecosystem</li>
+          <li>Data Pipeline Engineering</li>
+          <li>Real-time Analytics</li>
+        </ul>
+      </div>
+      <div class="skill-cat">
+        <h4>Security &amp; Identity</h4>
+        <ul class="skill-list">
+          <li>Information Security Architecture</li>
+          <li>Identity &amp; Access Management</li>
+          <li>Forensic &amp; Defense</li>
+          <li>Application Security</li>
+          <li>Security Policy &amp; Hygiene</li>
+        </ul>
+      </div>
+      <div class="skill-cat">
+        <h4>Languages &amp; Tools</h4>
+        <ul class="skill-list">
+          <li>Java · Python · Perl</li>
+          <li>Scala · Shell Scripting</li>
+          <li>Linux Administration</li>
+          <li>SQL / NoSQL</li>
+          <li>Git · CI/CD pipelines</li>
+        </ul>
+      </div>
+      <div class="skill-cat">
+        <h4>Product &amp; Leadership</h4>
+        <ul class="skill-list">
+          <li>Product Roadmap &amp; Strategy</li>
+          <li>ICT Policy Making</li>
+          <li>Executive Leadership</li>
+          <li>Team Building &amp; Mentoring</li>
+          <li>Commercialization &amp; SLA</li>
+        </ul>
+      </div>
+      <div class="skill-cat">
+        <h4>Emerging Tech</h4>
+        <ul class="skill-list">
+          <li>Crypto Technologies</li>
+          <li>Web 3.0 Architecture</li>
+          <li>Blockchain Applications</li>
+          <li>Data Science</li>
+          <li>AI/ML Integration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="fade-in">
+  <div class="section-label">// 04 — Connect</div>
+  <h2>Let's<br><em style="font-style:italic;color:var(--amber)">Talk.</em></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-subtle);border:1px solid var(--border-subtle);max-width:600px;">
+    <div style="background:var(--bg2);padding:1.75rem;">
+      <div class="section-label" style="margin-bottom:0.75rem;">Email</div>
+      <a href="mailto:ncbijaya@gmail.com" style="color:var(--amber);text-decoration:none;font-size:14px;font-family:'IBM Plex Mono',monospace;word-break:break-all;">ncbijaya@gmail.com</a>
+    </div>
+    <div style="background:var(--bg2);padding:1.75rem;">
+      <div class="section-label" style="margin-bottom:0.75rem;">Phone</div>
+      <a href="tel:+9779841373753" style="color:var(--amber);text-decoration:none;font-size:14px;font-family:'IBM Plex Mono',monospace;">+977 9841 373 753</a>
+    </div>
+    <div style="background:var(--bg2);padding:1.75rem;">
+      <div class="section-label" style="margin-bottom:0.75rem;">LinkedIn</div>
+      <a href="https://www.linkedin.com/in/bijayagautam" target="_blank" rel="noopener" style="color:var(--amber);text-decoration:none;font-size:13px;font-family:'IBM Plex Mono',monospace;">in/bijayagautam ↗</a>
+    </div>
+    <div style="background:var(--bg2);padding:1.75rem;">
+      <div class="section-label" style="margin-bottom:0.75rem;">Location</div>
+      <span style="color:var(--text-muted);font-size:14px;font-family:'IBM Plex Mono',monospace;">Kathmandu, Nepal</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Bijaya Gautam</div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="mailto:ncbijaya@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/bijayagautam" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
