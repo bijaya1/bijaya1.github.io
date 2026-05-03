@@ -3,976 +3,616 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bijaya Gautam — Tech Leader & Entrepreneur</title>
+<title>Bijaya Gautam — Architect. Builder. Thinker.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d0e10;
-    --bg2: #141519;
-    --bg3: #1c1d22;
-    --amber: #e8a020;
-    --amber-light: #f5c563;
-    --amber-dim: #a06a10;
-    --text: #e8e4d8;
-    --text-muted: #8a8578;
-    --text-dim: #5a5650;
-    --border: rgba(232, 160, 32, 0.15);
-    --border-subtle: rgba(255,255,255,0.06);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    font-size: 15px;
-  }
-
-  /* Nav */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 3rem;
-    background: rgba(13,14,16,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-subtle);
-  }
-
-  nav .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--amber);
-    letter-spacing: 0.02em;
-  }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2.5rem;
-  }
-
-  nav ul a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 400;
-    transition: color 0.2s;
-  }
-  nav ul a:hover { color: var(--amber); }
-
-  /* Hero */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 6rem 3rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(232,160,32,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .hero-text {}
-
-  .hero-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--amber);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .hero-label::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--amber);
-  }
-
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-title-italic {
-    font-style: italic;
-    color: var(--amber);
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-    color: var(--text-muted);
-    margin: 1.5rem 0 2.5rem;
-    max-width: 420px;
-    line-height: 1.75;
-    font-weight: 300;
-  }
-
-  .hero-contacts {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-contacts a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    transition: color 0.2s;
-    font-family: 'IBM Plex Mono', monospace;
-  }
-  .hero-contacts a:hover { color: var(--amber); }
-  .hero-contacts .icon { color: var(--amber-dim); font-size: 11px; }
-
-  .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.75rem;
-    font-size: 13px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-
-  .btn-primary {
-    background: var(--amber);
-    color: #0d0e10;
-    border: 1px solid var(--amber);
-  }
-  .btn-primary:hover { background: var(--amber-light); border-color: var(--amber-light); }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text-muted);
-    border: 1px solid var(--border-subtle);
-  }
-  .btn-outline:hover { border-color: var(--amber); color: var(--amber); }
-
-  /* Hero right side — stat cards */
-  .hero-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border-subtle);
-    border: 1px solid var(--border-subtle);
-  }
-
-  .stat-card {
-    background: var(--bg2);
-    padding: 1.75rem;
-    transition: background 0.2s;
-  }
-  .stat-card:hover { background: var(--bg3); }
-
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--amber);
-    line-height: 1;
-    margin-bottom: 0.4rem;
-  }
-  .stat-label {
-    font-size: 12px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  /* Section shared */
-  section {
-    padding: 5rem 3rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--amber);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.2;
-    margin-bottom: 3rem;
-  }
-
-  .divider {
-    width: 100%;
-    height: 1px;
-    background: var(--border-subtle);
-    margin: 0 0 5rem;
-  }
-
-  /* About */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .about-text p {
-    margin-bottom: 1.25rem;
-    color: var(--text-muted);
-    font-size: 15px;
-    line-height: 1.85;
-  }
-  .about-text p strong {
-    color: var(--text);
-    font-weight: 500;
-  }
-
-  .about-aside {}
-
-  .about-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    padding: 0.3rem 0.8rem;
-    background: var(--bg3);
-    color: var(--amber-dim);
-    border: 1px solid var(--border);
-    letter-spacing: 0.05em;
-  }
-
-  .edu-card {
-    background: var(--bg2);
-    border: 1px solid var(--border-subtle);
-    padding: 1.25rem;
-    margin-bottom: 1rem;
-    border-left: 2px solid var(--amber-dim);
-  }
-
-  .edu-card h4 {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 0.25rem;
-  }
-
-  .edu-card p {
-    font-size: 12px;
-    color: var(--text-muted);
-    font-family: 'IBM Plex Mono', monospace;
-  }
-
-  /* Experience timeline */
-  .experience-section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 5rem 3rem;
-  }
-
-  .timeline {
-    position: relative;
-    padding-left: 2rem;
-  }
-
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, var(--amber-dim), transparent);
-  }
-
-  .timeline-item {
-    position: relative;
-    margin-bottom: 3.5rem;
-    padding-left: 2.5rem;
-  }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -2rem;
-    top: 0.5rem;
-    width: 9px;
-    height: 9px;
-    border: 1px solid var(--amber);
-    background: var(--bg);
-    transform: rotate(45deg);
-  }
-
-  .timeline-item.current::before {
-    background: var(--amber);
-  }
-
-  .timeline-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
-    flex-wrap: wrap;
-  }
-
-  .timeline-company {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--amber);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 0.25rem;
-  }
-
-  .timeline-role {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.3;
-  }
-
-  .timeline-period {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-    margin-top: 0.3rem;
-  }
-
-  .timeline-desc {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.8;
-    margin-top: 0.75rem;
-    max-width: 640px;
-  }
-
-  .timeline-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 0.75rem;
-  }
-
-  .tag-sm {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    padding: 0.2rem 0.6rem;
-    background: var(--bg3);
-    color: var(--text-dim);
-    border: 1px solid var(--border-subtle);
-  }
-
-  /* Skills */
-  .skills-section {
-    background: var(--bg2);
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 5rem 0;
-  }
-
-  .skills-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 3rem;
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1px;
-    background: var(--border-subtle);
-    border: 1px solid var(--border-subtle);
-  }
-
-  .skill-cat {
-    background: var(--bg2);
-    padding: 1.75rem;
-  }
-
-  .skill-cat h4 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--amber);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .skill-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-  }
-
-  .skill-list li {
-    font-size: 13px;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .skill-list li::before {
-    content: '—';
-    color: var(--amber-dim);
-    font-size: 11px;
-  }
-
-  /* Highlights */
-  .highlights-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border-subtle);
-    border: 1px solid var(--border-subtle);
-  }
-
-  .highlight-card {
-    background: var(--bg2);
-    padding: 2rem 1.75rem;
-    transition: background 0.2s;
-  }
-  .highlight-card:hover { background: var(--bg3); }
-
-  .highlight-icon {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  .highlight-card h3 {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
-
-  .highlight-card p {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.75;
-  }
-
-  /* Footer */
-  footer {
-    border-top: 1px solid var(--border-subtle);
-    padding: 3rem;
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  footer .footer-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    color: var(--text-muted);
-  }
-
-  footer .footer-links {
-    display: flex;
-    gap: 2rem;
-  }
-
-  footer a {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--text-dim);
-    text-decoration: none;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  footer a:hover { color: var(--amber); }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    nav ul { gap: 1.5rem; }
-    .hero { padding: 5rem 1.5rem 3rem; }
-    .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    section, .experience-section, .skills-inner { padding: 3.5rem 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .highlights-grid { grid-template-columns: 1fr; }
-    footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-  }
-
-  /* Scroll animation */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+    --bg:#0a0a0b;--surface:#111114;--surface2:#16161b;--border:#1e1e28;
+    --amber:#c8973c;--amber-dim:#7a5a20;--amber-glow:rgba(200,151,60,0.07);
+    --text:#b8b8c6;--text-dim:#52526a;--text-bright:#e8e8f2;
+    --mono:'IBM Plex Mono',monospace;--serif:'Cormorant Garamond',serif;
+    --sans:'DM Sans',sans-serif;--grid:rgba(200,151,60,0.045);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;z-index:0}
+  .orb{position:fixed;pointer-events:none;z-index:0;border-radius:50%}
+  .orb1{top:-250px;right:-250px;width:700px;height:700px;background:radial-gradient(circle,rgba(200,151,60,0.06) 0%,transparent 65%)}
+  .orb2{bottom:-200px;left:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(70,60,160,0.04) 0%,transparent 70%)}
+  .z{position:relative;z-index:1}
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;border-bottom:1px solid var(--border);background:rgba(10,10,11,0.92);backdrop-filter:blur(18px)}
+  .nav-in{max-width:1160px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:0.25em;text-decoration:none}
+  .logo span{color:var(--text-dim)}
+  .nav-links{display:flex;gap:26px;list-style:none}
+  .nav-links a{font-family:var(--mono);font-size:10px;color:var(--text-dim);text-decoration:none;letter-spacing:0.16em;text-transform:uppercase;transition:color .2s}
+  .nav-links a:hover{color:var(--amber)}
+  /* HERO */
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:80px;position:relative;overflow:hidden}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 40px}
+  .hero-inner{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center}
+  .hero-badge{font-family:var(--mono);font-size:10px;color:var(--amber);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:26px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .6s ease forwards .15s}
+  .hero-badge::before{content:'▸';color:var(--amber-dim)}
+  .hero-name{font-family:var(--serif);font-size:clamp(62px,10vw,118px);font-weight:600;line-height:.88;color:var(--text-bright);letter-spacing:-0.025em;opacity:0;animation:fadeUp .65s ease forwards .3s}
+  .hero-name em{font-style:italic;font-weight:300;color:var(--amber);display:block}
+  .hero-roles{margin:26px 0 32px;font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.14em;display:flex;flex-wrap:wrap;gap:4px 0;opacity:0;animation:fadeUp .65s ease forwards .45s}
+  .hero-roles .seg{display:flex;align-items:center}
+  .hero-roles .sep{color:var(--border);margin:0 10px}
+  .hero-bio{max-width:560px;font-size:15.5px;line-height:1.88;color:var(--text);border-left:2px solid var(--amber-dim);padding-left:20px;margin-bottom:40px;opacity:0;animation:fadeUp .65s ease forwards .6s}
+  .hero-bio strong{color:var(--text-bright);font-weight:500}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .65s ease forwards .75s}
+  /* PHOTO */
+  .photo-frame{opacity:0;animation:fadeIn .8s ease forwards .9s;flex-shrink:0}
+  .photo-wrap{width:260px;height:320px;position:relative}
+  .photo-wrap::before{content:'';position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:1px solid var(--amber-dim);z-index:0}
+  .photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:relative;z-index:1;filter:grayscale(15%) contrast(1.05)}
+  .photo-placeholder{width:100%;height:100%;background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative;z-index:1}
+  .photo-placeholder .icon{width:72px;height:72px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+  .photo-placeholder .icon svg{opacity:.3}
+  .photo-placeholder .lbl{font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:.2em;text-transform:uppercase;text-align:center;line-height:1.6}
+  .photo-corner{position:absolute;bottom:-20px;right:-24px;font-family:var(--mono);font-size:9px;color:var(--amber-dim);letter-spacing:.2em;text-transform:uppercase;z-index:2;writing-mode:vertical-rl}
+  /* BUTTONS */
+  .btn{display:inline-block;padding:12px 30px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:all .22s}
+  .btn-fill{background:var(--amber);color:#0a0a0b}
+  .btn-fill:hover{background:#dba848;transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--border);color:var(--text-dim)}
+  .btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
+  .scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeIn .6s ease forwards 1.3s}
+  .scroll-hint span{font-family:var(--mono);font-size:8px;letter-spacing:.35em;color:var(--text-dim);text-transform:uppercase}
+  .scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--amber-dim),transparent);animation:pulse 2.2s ease-in-out infinite}
+  /* TICKER */
+  .ticker{font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.12em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:10px 0;overflow:hidden;white-space:nowrap;position:relative;z-index:1}
+  .ticker-inner{display:inline-flex;gap:48px;animation:marquee 42s linear infinite}
+  .ticker-inner span{opacity:.4}
+  .ticker-inner .hi{color:var(--amber);opacity:1}
+  /* SECTION */
+  section{padding:100px 0;position:relative;z-index:1}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:60px}
+  .sec-num{font-family:var(--mono);font-size:10px;color:var(--amber);letter-spacing:.25em}
+  .sec-title{font-family:var(--serif);font-size:clamp(30px,4.5vw,50px);font-weight:300;color:var(--text-bright);letter-spacing:-0.01em}
+  .sec-rule{flex:1;height:1px;background:var(--border);margin-left:14px}
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+  .about-text p{font-size:15.5px;color:var(--text);margin-bottom:18px;line-height:1.88}
+  .about-text p strong{color:var(--text-bright);font-weight:500}
+  .about-pull{font-family:var(--serif);font-size:24px;font-weight:300;font-style:italic;color:var(--text-dim);line-height:1.45;border-top:1px solid var(--border);padding-top:28px;margin-top:36px}
+  .about-pull em{color:var(--amber);font-style:normal}
+  .stats-col{display:flex;flex-direction:column;gap:1px}
+  .stat{background:var(--surface);border:1px solid var(--border);padding:22px 26px;position:relative;overflow:hidden;transition:border-color .25s,background .25s}
+  .stat::after{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--amber);transform:scaleY(0);transform-origin:bottom;transition:transform .3s ease}
+  .stat:hover{border-color:var(--amber-dim);background:var(--amber-glow)}
+  .stat:hover::after{transform:scaleY(1)}
+  .stat-n{font-family:var(--serif);font-size:42px;font-weight:300;color:var(--amber);line-height:1;margin-bottom:4px}
+  .stat-l{font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.2em;text-transform:uppercase}
+  /* EXPERTISE */
+  .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+  .exp-card{background:var(--bg);padding:32px;transition:background .2s}
+  .exp-card:hover{background:var(--surface)}
+  .exp-num{font-family:var(--mono);font-size:10px;color:var(--amber);letter-spacing:.2em;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .exp-num::after{content:'';flex:1;height:1px;background:var(--border)}
+  .exp-card h3{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--text-bright);margin-bottom:10px;line-height:1.25}
+  .exp-card p{font-size:13.5px;color:var(--text-dim);line-height:1.75}
+  /* TIMELINE */
+  .timeline{padding-left:36px;position:relative}
+  .timeline::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:1px;background:linear-gradient(to bottom,var(--amber),var(--border) 60%,transparent)}
+  .tl-item{margin-bottom:52px;position:relative;opacity:0;transform:translateX(-12px);transition:opacity .5s ease,transform .5s ease}
+  .tl-item.vis{opacity:1;transform:none}
+  .tl-item::before{content:'';position:absolute;left:-40px;top:6px;width:8px;height:8px;border:1px solid var(--amber);background:var(--bg);transform:rotate(45deg)}
+  .tl-item.gov-item::before{background:rgba(200,151,60,.2)}
+  .tl-tag{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:2px 8px;margin-bottom:8px}
+  .tl-tag.ind{background:rgba(200,151,60,.12);color:var(--amber)}
+  .tl-tag.gov{background:rgba(80,160,80,.1);color:#80c080}
+  .tl-tag.res{background:rgba(80,80,200,.1);color:#8090d8}
+  .tl-meta{font-family:var(--mono);font-size:10px;color:var(--amber);letter-spacing:.18em;margin-bottom:5px}
+  .tl-role{font-family:var(--serif);font-size:23px;font-weight:600;color:var(--text-bright);line-height:1.2;margin-bottom:4px}
+  .tl-org{font-family:var(--mono);font-size:11px;color:var(--amber-dim);margin-bottom:12px}
+  .tl-desc{font-size:14px;color:var(--text);line-height:1.8;max-width:640px}
+  /* PHD */
+  .phd-panel{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--amber);padding:52px;display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:start}
+  .phd-badge{font-family:var(--mono);font-size:9px;color:var(--amber);letter-spacing:.3em;text-transform:uppercase;margin-bottom:16px}
+  .phd-badge::before{content:'◈  '}
+  .phd-panel h3{font-family:var(--serif);font-size:clamp(22px,3vw,32px);font-weight:300;color:var(--text-bright);line-height:1.3;margin-bottom:16px}
+  .phd-panel h3 em{font-style:italic;color:var(--amber)}
+  .phd-panel p{font-size:14.5px;color:var(--text);line-height:1.85}
+  .phd-panel p+p{margin-top:12px}
+  .thinkers{display:flex;flex-direction:column;gap:1px}
+  .thinker{background:var(--bg);border:1px solid var(--border);padding:20px 24px;transition:border-color .2s,background .2s}
+  .thinker:hover{border-color:var(--amber-dim);background:var(--amber-glow)}
+  .thinker-name{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--text-bright);margin-bottom:3px}
+  .thinker-theory{font-family:var(--mono);font-size:10px;color:var(--amber-dim);letter-spacing:.1em;margin-bottom:6px}
+  .thinker-desc{font-size:12.5px;color:var(--text-dim);line-height:1.6}
+  /* THINKING */
+  .thought-layout{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:var(--border)}
+  .thought-main{background:var(--bg);padding:48px}
+  .thought-tag{font-family:var(--mono);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+  .thought-main h3{font-family:var(--serif);font-size:32px;font-weight:300;color:var(--text-bright);line-height:1.2;margin-bottom:18px}
+  .thought-main p{font-size:14.5px;color:var(--text);line-height:1.85}
+  .thought-main p+p{margin-top:14px}
+  .thought-side{background:var(--surface);display:flex;flex-direction:column}
+  .t-item{padding:22px 28px;border-bottom:1px solid var(--border);transition:background .2s}
+  .t-item:last-child{border-bottom:none}
+  .t-item:hover{background:var(--amber-glow)}
+  .t-cat{font-family:var(--mono);font-size:9px;color:var(--amber-dim);letter-spacing:.2em;text-transform:uppercase;margin-bottom:5px}
+  .t-item h4{font-size:13.5px;color:var(--text);font-weight:400;line-height:1.45}
+  /* PUBLICATIONS */
+  .pub-list{display:flex;flex-direction:column;gap:1px}
+  .pub{background:var(--surface);border:1px solid var(--border);padding:26px 32px;display:grid;grid-template-columns:72px 1fr;gap:24px;align-items:start;transition:border-color .2s,background .2s}
+  .pub:hover{border-color:var(--amber-dim);background:var(--amber-glow)}
+  .pub-yr{font-family:var(--mono);font-size:11px;color:var(--amber-dim);letter-spacing:.1em;padding-top:3px}
+  .pub-title{font-family:var(--serif);font-size:19px;font-weight:300;color:var(--text-bright);line-height:1.35;margin-bottom:6px}
+  .pub-venue{font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.08em;margin-bottom:6px}
+  .pub-link{font-family:var(--mono);font-size:10px;color:var(--amber);text-decoration:none;transition:opacity .2s}
+  .pub-link:hover{opacity:.7}
+  /* EDUCATION */
+  .edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+  .edu{background:var(--bg);padding:36px;transition:background .2s}
+  .edu:hover{background:var(--surface)}
+  .edu.active{border-left:2px solid var(--amber)}
+  .edu-deg{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--text-bright);margin-bottom:6px;line-height:1.25}
+  .edu-inst{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.08em;margin-bottom:6px}
+  .edu-yr{font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.15em}
+  .edu-note{font-size:13px;color:var(--text-dim);margin-top:10px;line-height:1.65}
+  /* LEADERSHIP */
+  .lead-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+  .lead{background:var(--bg);padding:28px 34px;transition:background .2s}
+  .lead:hover{background:var(--surface)}
+  .lead-role{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--text-bright);margin-bottom:4px;line-height:1.3}
+  .lead-org{font-family:var(--mono);font-size:11px;color:var(--amber-dim);letter-spacing:.06em;margin-bottom:4px}
+  .lead-yr{font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.15em}
+  /* CONTACT */
+  .contact-band{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .contact-in{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr}
+  .contact-l{padding:80px 60px 80px 40px;border-right:1px solid var(--border)}
+  .contact-l h2{font-family:var(--serif);font-size:clamp(36px,5vw,58px);font-weight:300;color:var(--text-bright);line-height:1.05;margin-bottom:22px}
+  .contact-l h2 em{font-style:italic;color:var(--amber);display:block}
+  .contact-l p{font-size:15px;color:var(--text);line-height:1.8;max-width:380px}
+  .contact-r{padding:80px 40px 80px 60px;display:flex;flex-direction:column;justify-content:center;gap:28px}
+  .clink{display:flex;align-items:baseline;gap:16px;text-decoration:none;transition:opacity .2s}
+  .clink:hover{opacity:.7}
+  .cl-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--amber-dim);min-width:80px}
+  .cl-val{font-family:var(--mono);font-size:12.5px;color:var(--text)}
+  /* FOOTER */
+  footer{padding:36px 0;position:relative;z-index:1}
+  footer .fin{max-width:1160px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between}
+  .copy{font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.15em}
+  .copy span{color:var(--amber)}
+  .flinks{display:flex;gap:24px}
+  .flinks a{font-family:var(--mono);font-size:10px;color:var(--text-dim);text-decoration:none;letter-spacing:.15em;transition:color .2s}
+  .flinks a:hover{color:var(--amber)}
+  /* ANIMATIONS */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr}
+    .photo-frame{display:none}
+    .about-grid,.exp-grid,.thought-layout,.edu-grid,.lead-grid,.contact-in{grid-template-columns:1fr}
+    .phd-panel{grid-template-columns:1fr;padding:32px}
+    .exp-grid{background:none;gap:1px}
+    .exp-card{border:1px solid var(--border)}
+    .contact-l{border-right:none;border-bottom:1px solid var(--border);padding:48px 32px}
+    .contact-r{padding:48px 32px}
+    .nav-links{display:none}
+    .wrap{padding:0 24px}
+    footer .fin{flex-direction:column;gap:12px;text-align:center}
   }
 </style>
 </head>
 <body>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
 
 <!-- NAV -->
 <nav>
-  <div class="logo">BG</div>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="nav-in">
+    <a href="#" class="logo">BG<span>/01</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#thinking">Thinking</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="hero-label">Tech Leader · Entrepreneur · Nepal</div>
-      <h1>Bijaya<br><span class="hero-title-italic">Gautam</span></h1>
-      <p class="hero-subtitle">
-        17+ years building large-scale software systems at <strong>Apple</strong> and <strong>Qualcomm</strong>. 
-        Now shaping Nepal's tech future as founder, advisor, and voice on Web3 &amp; Information Security.
-      </p>
-      <div class="hero-contacts">
-        <a href="mailto:ncbijaya@gmail.com"><span class="icon">✉</span> ncbijaya@gmail.com</a>
-        <a href="tel:+9779841373753"><span class="icon">◎</span> +977 9841373753</a>
-        <a href="https://www.linkedin.com/in/bijayagautam" target="_blank" rel="noopener"><span class="icon">↗</span> linkedin.com/in/bijayagautam</a>
-        <a href="#"><span class="icon">◉</span> Kathmandu, Nepal</a>
+<section class="hero z">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">Kathmandu, Nepal · Tech Architect · Policy Advisor · PhD Researcher</div>
+        <h1 class="hero-name">Bijaya<br><em>Gautam</em></h1>
+        <div class="hero-roles">
+          <span class="seg">Architect @ Apple &amp; Qualcomm</span>
+          <span class="sep">—</span>
+          <span class="seg">Founder, Sayapatri Tech</span>
+          <span class="sep">—</span>
+          <span class="seg">4× GoN Committee Member</span>
+          <span class="sep">—</span>
+          <span class="seg">PhD Candidate, TU</span>
+        </div>
+        <p class="hero-bio">
+          I build products and the teams to solve hard problems. With <strong>17+ years</strong> across ICT policy, large-scale software architecture, information security, and Big Data — from <strong>Apple Inc.</strong> to the <strong>Government of Nepal</strong> — I work where systems meet society. Now researching how power, capital, and discourse shape entrepreneurship.
+        </p>
+        <div class="hero-ctas">
+          <a href="#experience" class="btn btn-fill">View Experience</a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
       </div>
-      <div class="btn-group">
-        <a href="mailto:ncbijaya@gmail.com" class="btn btn-primary">Get in touch</a>
-        <a href="https://www.linkedin.com/in/bijayagautam" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
-      </div>
-    </div>
 
-    <div class="hero-stats fade-in">
-      <div class="stat-card">
-        <div class="stat-num">17+</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Apple Architect Roles</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">250+</div>
-        <div class="stat-label">TB Data Managed</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">500+</div>
-        <div class="stat-label">Professional Network</div>
+      <!-- PHOTO FRAME -->
+      <!-- To use your own photo: replace the .photo-placeholder div with <img src="photo.jpg" alt="Bijaya Gautam"> -->
+      <!-- Put your photo file (named photo.jpg) in the same folder as index.html -->
+      <div class="photo-frame">
+        <div class="photo-wrap">
+          <div class="photo-placeholder">
+            <div class="icon">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <circle cx="18" cy="13" r="6" stroke="#c8973c" stroke-width="1.5"/>
+                <path d="M4 32c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#c8973c" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="lbl">Upload your<br>profile photo</div>
+          </div>
+          <div class="photo-corner">bijayagautam</div>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker z">
+  <div class="ticker-inner">
+    <span>ICT Policy</span><span class="hi">▸</span><span>Apple Inc.</span><span class="hi">▸</span><span>Qualcomm</span><span class="hi">▸</span><span>Information Security</span><span class="hi">▸</span><span>Big Data · Hadoop · Spark</span><span class="hi">▸</span><span>AWS Cloud</span><span class="hi">▸</span><span>Web3 &amp; Crypto</span><span class="hi">▸</span><span>Emergency Response</span><span class="hi">▸</span><span>Entrepreneurship</span><span class="hi">▸</span><span>Foucault · Bourdieu · Sen</span><span class="hi">▸</span><span>PhD Researcher, Tribhuvan University</span><span class="hi">▸</span>
+    <span>ICT Policy</span><span class="hi">▸</span><span>Apple Inc.</span><span class="hi">▸</span><span>Qualcomm</span><span class="hi">▸</span><span>Information Security</span><span class="hi">▸</span><span>Big Data · Hadoop · Spark</span><span class="hi">▸</span><span>AWS Cloud</span><span class="hi">▸</span><span>Web3 &amp; Crypto</span><span class="hi">▸</span><span>Emergency Response</span><span class="hi">▸</span><span>Entrepreneurship</span><span class="hi">▸</span><span>Foucault · Bourdieu · Sen</span><span class="hi">▸</span><span>PhD Researcher, Tribhuvan University</span><span class="hi">▸</span>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section id="about" class="fade-in">
-  <div class="section-label">// 01 — Profile</div>
-  <h2>Builder. Architect.<br><em style="font-style:italic;color:var(--amber)">Entrepreneur.</em></h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>
-        I build products and the teams to solve hard problems. My toolbox spans <strong>ICT Policy Making</strong>, 
-        Product Roadmaps, <strong>Large Scale Software Architecture</strong>, Software Development, Quality of Service, 
-        Integration, Commercialization, and SLA delivery across 17+ years of hands-on engineering leadership.
-      </p>
-      <p>
-        As <strong>Architect</strong> at Apple Inc., I led Identity Management, Information Security, and Big Data Services 
-        — working on systems that process hundreds of terabytes of data daily. At Qualcomm, I designed Big Data solutions 
-        for hosted VoIP platforms serving major U.S. and Mexican wireless operators.
-      </p>
-      <p>
-        Back in Nepal, I founded <strong>Sayapatri Technology Pvt. Ltd.</strong>, serve on the Ministry of Home Affairs 
-        Emergency Response committee, and advise ktmbees — a Kathmandu-based tech initiative. I speak at 
-        <strong>Podcasts, Tech Fests</strong> and international webinars on Crypto, Web3, and Information Security.
-      </p>
-      <p>
-        I hold an <strong>Executive Leadership Certificate (2019)</strong> and a <strong>Product Management Certificate (2018)</strong> 
-        from the University of California, Berkeley, and an MS in Engineering from Lamar University.
-      </p>
-    </div>
-    <div class="about-aside">
-      <div style="margin-bottom:1.75rem;">
-        <div class="section-label" style="margin-bottom:0.75rem;">Core domains</div>
-        <div class="about-tags">
-          <span class="tag">Information Security</span>
-          <span class="tag">Big Data</span>
-          <span class="tag">AWS Cloud</span>
-          <span class="tag">Product Management</span>
-          <span class="tag">Web 3.0</span>
-          <span class="tag">Crypto</span>
-          <span class="tag">Identity Management</span>
-          <span class="tag">Data Science</span>
-          <span class="tag">ICT Policy</span>
-          <span class="tag">DevOps</span>
-        </div>
+<section id="about" class="z">
+  <div class="wrap">
+    <div class="sec-head"><div class="sec-num">01</div><h2 class="sec-title">About</h2><div class="sec-rule"></div></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I am a <strong>technology architect, national policy advisor, entrepreneur, and doctoral researcher</strong> based in Kathmandu. Over 17+ years I have built systems that matter — from the <strong>Identity Management platform at Apple</strong> serving all employees, vendors, and contractors, to conceptualizing Nepal's Integrated Emergency Response infrastructure.</p>
+        <p>My technical career spans <strong>Big Data and security architecture at Apple and Qualcomm</strong>. At Apple, I owned the Security Event Pipeline processing <strong>250 TB of data every day</strong>. At Qualcomm, I led distributed teams across the USA, India, Mexico, and Latin America deploying VoIP-based telecom solutions globally.</p>
+        <p>In parallel, I have served as a <strong>committee member and working group participant across four Government of Nepal ministries</strong> — advising on emergency response systems, datacenter governance, ICT policy, and smart mobility infrastructure. I was the initiator of Nepal's Integrated Emergency Response System (IERS).</p>
+        <p>I am the founder of <strong>Sayapatri Tech Pvt. Ltd.</strong>, building premier information security products for Nepali businesses. Since 2023, I am enrolled as a <strong>PhD candidate at Tribhuvan University, Faculty of Humanities and Social Science</strong>, studying entrepreneurship through the theoretical lenses of Foucault, Bourdieu, and Amartya Sen.</p>
+        <div class="about-pull">Technology without governance is chaos.<br>Governance without technology is <em>paralysis</em>.</div>
       </div>
-      <div class="section-label" style="margin-bottom:0.75rem;">Education</div>
-      <div class="edu-card">
-        <h4>UC Berkeley</h4>
-        <p>Executive Leadership · 2019<br>Product Management · 2018</p>
-      </div>
-      <div class="edu-card">
-        <h4>Lamar University</h4>
-        <p>MS Engineering · 2009–2010</p>
-      </div>
-      <div class="edu-card">
-        <h4>South Dakota State University</h4>
-        <p>Graduate Studies</p>
-      </div>
-      <div class="edu-card">
-        <h4>Kathmandu University</h4>
-        <p>BE Electronics Engineering · 2002–2006</p>
+      <div class="stats-col">
+        <div class="stat"><div class="stat-n">17+</div><div class="stat-l">Years of Experience</div></div>
+        <div class="stat"><div class="stat-n">250<span style="font-size:22px">TB</span></div><div class="stat-l">Daily Data — Apple Security Pipeline</div></div>
+        <div class="stat"><div class="stat-n">4</div><div class="stat-l">Government of Nepal Advisory Roles</div></div>
+        <div class="stat"><div class="stat-n">4</div><div class="stat-l">Published Research Papers</div></div>
+        <div class="stat"><div class="stat-n">2023</div><div class="stat-l">PhD Enrolled — Tribhuvan University</div></div>
+        <div class="stat"><div class="stat-n">2011</div><div class="stat-l">Writing on Technology Since</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider" style="max-width:1100px;margin:0 auto;padding:0 3rem;"><div style="height:1px;background:rgba(255,255,255,0.06);"></div></div>
-
-<!-- HIGHLIGHTS -->
-<section style="padding-top:0;" class="fade-in">
-  <div class="highlights-grid">
-    <div class="highlight-card">
-      <span class="highlight-icon">◈</span>
-      <h3>Apple Inc. — Triple Architect</h3>
-      <p>Served as Architect across three high-impact domains: Identity Management, Information Security, and Big Data Services — all within Apple's Cupertino engineering org.</p>
-    </div>
-    <div class="highlight-card">
-      <span class="highlight-icon">◈</span>
-      <h3>Big Data at Qualcomm</h3>
-      <p>Designed Big Data Solutions for VoIP-based push-to-talk platforms serving major U.S. and Mexican wireless operators. Built pipelines managing 250+ TB of daily data.</p>
-    </div>
-    <div class="highlight-card">
-      <span class="highlight-icon">◈</span>
-      <h3>Nepal Tech Ecosystem</h3>
-      <p>Founder of Sayapatri Technology, board advisor at ktmbees and Global Nepali Professional Network, Ministry of Home Affairs IERS committee member, and podcaster at 977Podcast.</p>
+<!-- EXPERTISE -->
+<section id="expertise" class="z" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div class="sec-num">02</div><h2 class="sec-title">Expertise</h2><div class="sec-rule"></div></div>
+    <div class="exp-grid">
+      <div class="exp-card"><div class="exp-num">01</div><h3>Systems Architecture</h3><p>Large-scale software design from roadmap to production. Identity management, Big Data pipelines, security event platforms — built to process hundreds of terabytes daily at enterprise scale.</p></div>
+      <div class="exp-card"><div class="exp-num">02</div><h3>Information Security</h3><p>Deep command of the security ecosystem: Identity, Forensics, Defense, Hygiene, Application Security, Attack, and Policy. Architect of identity and security platforms at Apple Inc.</p></div>
+      <div class="exp-card"><div class="exp-num">03</div><h3>ICT Policy &amp; Governance</h3><p>Bridging technical realities and national policy. Advisory roles across four Government of Nepal ministries: emergency response, datacenter governance, digital infrastructure, and smart mobility.</p></div>
+      <div class="exp-card"><div class="exp-num">04</div><h3>Big Data &amp; Cloud</h3><p>Hadoop, Spark, Cloudera, Hortonworks, AWS. Led Big Data platform engineering at Apple and Qualcomm. Deployed scalable analytics infrastructure for global telecom networks and fraud detection.</p></div>
+      <div class="exp-card"><div class="exp-num">05</div><h3>Product &amp; Team Leadership</h3><p>UC Berkeley-trained in Executive Leadership (2019) and Product Management (2018). Built distributed engineering teams across USA, India, Mexico, Latin America, delivering from SLA to commercialization.</p></div>
+      <div class="exp-card"><div class="exp-num">06</div><h3>Web3 &amp; Emerging Tech</h3><p>Active speaker on crypto technologies, decentralized systems, and Web 3.0 as both technical and political phenomena. Judge and panelist at tech festivals, podcasts, and webinars.</p></div>
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<div id="experience" class="experience-section fade-in">
-  <div class="section-label">// 02 — Career</div>
-  <h2>Work<br><em style="font-style:italic;color:var(--amber)">Experience</em></h2>
+<section id="experience" class="z">
+  <div class="wrap">
+    <div class="sec-head"><div class="sec-num">03</div><h2 class="sec-title">Experience</h2><div class="sec-rule"></div></div>
+    <div class="timeline">
 
-  <div class="timeline">
+      <div class="tl-item gov-item">
+        <span class="tl-tag gov">Government · Policy</span>
+        <div class="tl-meta">Feb 2024 — Present</div>
+        <div class="tl-role">Committee Member, IERS</div>
+        <div class="tl-org">Ministry of Home Affairs, Nepal</div>
+        <p class="tl-desc">Initiator of Nepal's Integrated Emergency Response System (IERS). Served as committee member and subcommittee coordinator — designing, architecting, and drafting the comprehensive conceptual paper and action plan. Collaborated with stakeholders across security forces, the Health Ministry, Nepal Telecom Authority, and Ministry of Communication and IT to optimize emergency signal reception, contact registration, broadcast, and multi-agency coordination (Police, Fire &amp; Rescue, Health). Led emergency skills enhancement for institutions and the public.</p>
+      </div>
 
-    <div class="timeline-item current">
-      <div class="timeline-company">Sayapatri Technology Pvt. Ltd.</div>
-      <div class="timeline-header">
-        <div class="timeline-role">Founder &amp; Director</div>
-        <div class="timeline-period">2020 — Present · Kathmandu, NP</div>
+      <div class="tl-item gov-item">
+        <span class="tl-tag gov">Government · Advisory</span>
+        <div class="tl-meta">Nov 2023</div>
+        <div class="tl-role">Committee Member</div>
+        <div class="tl-org">Ministry of Home Affairs, Nepal</div>
+        <p class="tl-desc">Contributed to enhancing work execution efficiency within the Home Ministry and its diverse units. Conducted studies, identified key sectors for improvement, and devised actionable recommendations. Worked under the former Chief Secretary of Cabinets alongside the former Secretary of Home Ministry and Inspector Generals of security forces.</p>
       </div>
-      <p class="timeline-desc">
-        Founded and leading a Nepal-based technology company delivering cutting-edge IT solutions. Driving innovation 
-        and building the next generation of tech talent in Nepal's ecosystem.
-      </p>
-      <div class="timeline-tags">
-        <span class="tag-sm">Entrepreneurship</span><span class="tag-sm">Product</span><span class="tag-sm">Leadership</span>
-      </div>
-    </div>
 
-    <div class="timeline-item current">
-      <div class="timeline-company">ktmbees</div>
-      <div class="timeline-header">
-        <div class="timeline-role">Advisor Board Member</div>
-        <div class="timeline-period">2020 — Present · Kathmandu, NP</div>
+      <div class="tl-item gov-item">
+        <span class="tl-tag gov">Government · Investigative</span>
+        <div class="tl-meta">Feb 2023</div>
+        <div class="tl-role">Committee Member, High-Level Cabinet Committee</div>
+        <div class="tl-org">Ministry of Communication and Information Technology, Nepal</div>
+        <p class="tl-desc">Led a comprehensive investigation into service interruptions at the Government Integrated Datacenter and Disaster Recovery Center. Prepared and submitted a detailed report through meticulous analysis that played a pivotal role in shaping the Ministry's strategic decisions and significantly influenced the National Policy and Program for 2023/2024.</p>
       </div>
-      <p class="timeline-desc">
-        Strategic advisor supporting ktmbees' growth as a tech platform and community in Nepal. 
-        Contributing expertise in architecture, product, and international tech ecosystems.
-      </p>
-      <div class="timeline-tags">
-        <span class="tag-sm">Advisory</span><span class="tag-sm">Strategy</span>
-      </div>
-    </div>
 
-    <div class="timeline-item current">
-      <div class="timeline-company">Ministry of Home Affairs, Nepal</div>
-      <div class="timeline-header">
-        <div class="timeline-role">Committee Member — IERS</div>
-        <div class="timeline-period">Feb 2024 — Present · Kathmandu, NP</div>
+      <div class="tl-item gov-item">
+        <span class="tl-tag gov">Government · Working Group</span>
+        <div class="tl-meta">Jan 2023</div>
+        <div class="tl-role">Working Group Member</div>
+        <div class="tl-org">Ministry of Physical Infrastructure and Transport, Nepal</div>
+        <p class="tl-desc">Key participant in the working group addressing vehicle pollution, traffic safety, and accident mitigation. Led investigation into ICT solutions for electronic driving licenses, raised number plates, insurance, and comprehensive road safety measures. Substantially advanced the committee's outcomes over a year of intensive engagement.</p>
       </div>
-      <p class="timeline-desc">
-        Serving as Committee Member on the Integrated Emergency Response System (IERS), 
-        contributing to ICT policy-making, emergency communication architecture, and inter-agency coordination 
-        with Home Affairs, Health, Telecom, and rescue services.
-      </p>
-      <div class="timeline-tags">
-        <span class="tag-sm">ICT Policy</span><span class="tag-sm">Emergency Systems</span><span class="tag-sm">Government</span>
-      </div>
-    </div>
 
-    <div class="timeline-item">
-      <div class="timeline-company">977Podcast</div>
-      <div class="timeline-header">
-        <div class="timeline-role">Founder &amp; Podcaster</div>
-        <div class="timeline-period">Ongoing · Nepal</div>
+      <div class="tl-item">
+        <span class="tl-tag ind">Entrepreneur</span>
+        <div class="tl-meta">Oct 2018 — Present</div>
+        <div class="tl-role">Founder</div>
+        <div class="tl-org">Sayapatri Tech Pvt. Ltd., Kathmandu, Nepal</div>
+        <p class="tl-desc">Envisioned and built a premier Nepali IT company focused on cutting-edge information security products, consulting, and tools for Nepali businesses — without compromising on quality. Building locally-owned digital infrastructure for the next generation.</p>
       </div>
-      <p class="timeline-desc">
-        Hosting a tech-focused podcast for the Nepali diaspora and community, covering topics 
-        in Web3, Crypto, Information Security, and entrepreneurship. Judge and panelist at international tech fests.
-      </p>
-      <div class="timeline-tags">
-        <span class="tag-sm">Web3</span><span class="tag-sm">Crypto</span><span class="tag-sm">InfoSec</span>
-      </div>
-    </div>
 
-    <div class="timeline-item">
-      <div class="timeline-company">Apple Inc.</div>
-      <div class="timeline-header">
-        <div class="timeline-role">Architect — Identity Management / Information Security / Big Data</div>
-        <div class="timeline-period">2014 — 2020 · Cupertino, CA</div>
+      <div class="tl-item">
+        <span class="tl-tag ind">Industry · Silicon Valley</span>
+        <div class="tl-meta">Apr 2017 — Nov 2020</div>
+        <div class="tl-role">Information Security Architect</div>
+        <div class="tl-org">Apple Inc., Austin, USA</div>
+        <p class="tl-desc">Built the Registration and Access Management Platform (RAMP) — managing identity, access, and authorization for all Apple employees, vendors, and contractors across internal applications. Product owner of the Apple Security Event Pipeline (ASEP): a Big Data platform for fraud detection and threat response collecting, transporting, and processing <strong>250 TB of data every day</strong>. Helped multiple engineering managers build teams, approved tech stacks, and set overall security product technology direction — deployed across cloud and Apple data centers.</p>
       </div>
-      <p class="timeline-desc">
-        Served in three consecutive Architect roles at Apple, leading the architecture of enterprise-scale systems. 
-        Built the Recruiter and Applicant Platform (RAMP) serving employees and vendors. Designed Apple's ASEP event pipeline 
-        for fraud and threat detection. Led Big Data infrastructure handling 250+ TB of daily data using Hadoop, Spark, 
-        Cloudera and Hortonworks — with both onsite and offshore teams in Cupertino.
-      </p>
-      <div class="timeline-tags">
-        <span class="tag-sm">Identity Management</span><span class="tag-sm">Information Security</span>
-        <span class="tag-sm">Hadoop</span><span class="tag-sm">Spark</span><span class="tag-sm">Big Data</span>
-        <span class="tag-sm">Cloudera</span><span class="tag-sm">Fraud Detection</span>
-      </div>
-    </div>
 
-    <div class="timeline-item">
-      <div class="timeline-company">Qualcomm</div>
-      <div class="timeline-header">
-        <div class="timeline-role">Big Data Solutions Architect / Senior Engineer</div>
-        <div class="timeline-period">2011 — 2014 · San Diego, CA</div>
+      <div class="tl-item">
+        <span class="tl-tag ind">Industry · Silicon Valley</span>
+        <div class="tl-meta">Sept 2014 — Apr 2017</div>
+        <div class="tl-role">Big Data Architect</div>
+        <div class="tl-org">Apple Inc., Cupertino, USA</div>
+        <p class="tl-desc">Led onsite and offshore engineering teams to build and support Apple's Big Data platform. Hired and managed ultra-talented engineers driving Hadoop/Spark innovation. Partnered with Cloudera and Hortonworks to build enterprise-ready features. Designed a highly scalable custom monitoring and analytics platform for metrics collection, storage, and visualization across Apple.</p>
       </div>
-      <p class="timeline-desc">
-        Designed and delivered Big Data solutions for hosted and managed VoIP-based push-to-talk platforms 
-        for major U.S. and Mexican wireless operators. Architected large-scale data ingestion and analytics pipelines.
-      </p>
-      <div class="timeline-tags">
-        <span class="tag-sm">Big Data</span><span class="tag-sm">VoIP</span><span class="tag-sm">Hadoop</span>
-        <span class="tag-sm">Scala</span><span class="tag-sm">Java</span>
-      </div>
-    </div>
 
-    <div class="timeline-item">
-      <div class="timeline-company">Intuit</div>
-      <div class="timeline-header">
-        <div class="timeline-role">System Engineer</div>
-        <div class="timeline-period">2010 — 2011 · Mountain View, CA</div>
+      <div class="tl-item">
+        <span class="tl-tag ind">Industry</span>
+        <div class="tl-meta">Sept 2011 — Sept 2014</div>
+        <div class="tl-role">Senior Engineer · Big Data Solutions Architect</div>
+        <div class="tl-org">Qualcomm Inc., San Diego, CA</div>
+        <p class="tl-desc">Member of the Emerging Products Group developing push-to-talk (PTT) and messaging applications. Led 10+ engineers across USA, India, Mexico, and Latin America. Deployed and integrated the QCHAT Ecosystem into telecom networks — launching VoIP-based mobile solutions for major U.S. and Mexican wireless operators. Scope spanned pre/post-sales support, capacity projection, scalable cluster deployment, performance tuning, DR/BCP assessment, and IT security clearance for Hadoop deployments.</p>
       </div>
-      <p class="timeline-desc">
-        Systems engineering and platform work at Intuit. Built and maintained large-scale infrastructure 
-        supporting financial software products used by millions of customers.
-      </p>
-      <div class="timeline-tags">
-        <span class="tag-sm">Systems Engineering</span><span class="tag-sm">Java</span><span class="tag-sm">Linux</span>
-      </div>
-    </div>
 
-    <div class="timeline-item">
-      <div class="timeline-company">Lamar University</div>
-      <div class="timeline-header">
-        <div class="timeline-role">Research Assistant</div>
-        <div class="timeline-period">2009 — 2010 · Beaumont, TX</div>
+      <div class="tl-item">
+        <span class="tl-tag ind">Industry · Consulting</span>
+        <div class="tl-meta">Mar 2011 — Sept 2011</div>
+        <div class="tl-role">Programming Analyst (Consultant)</div>
+        <div class="tl-org">Intuit Inc., San Diego, CA</div>
+        <p class="tl-desc">Supported flagship products including Quickbase, Intuit Market, and QuickBooks. Migrated applications from legacy data centers to new state-of-the-art facilities. Delivered HA/DR infrastructure solutions, high-availability network and storage support, and 24-hour on-call coverage.</p>
       </div>
-      <p class="timeline-desc">
-        Graduate research assistantship while completing MS in Engineering. Research focused on distributed 
-        systems and data processing.
-      </p>
-      <div class="timeline-tags">
-        <span class="tag-sm">Research</span><span class="tag-sm">Distributed Systems</span>
-      </div>
-    </div>
 
-  </div>
-</div>
+      <div class="tl-item">
+        <span class="tl-tag res">Academia · Research</span>
+        <div class="tl-meta">Feb 2009 — Mar 2010</div>
+        <div class="tl-role">Graduate Assistant</div>
+        <div class="tl-org">Applied Digital Signal Processing Lab · Lamar University, USA</div>
+        <p class="tl-desc">Research published as thesis: "Spectral Estimation of Electroencephalogram Signal using ARMAX Model and Particle Swarm Optimization" — at the intersection of signal processing and computational intelligence.</p>
+      </div>
 
-<!-- SKILLS -->
-<div id="skills" class="skills-section fade-in">
-  <div class="skills-inner">
-    <div class="section-label">// 03 — Capabilities</div>
-    <h2>Skills &amp;<br><em style="font-style:italic;color:var(--amber)">Expertise</em></h2>
-    <div class="skills-grid">
-      <div class="skill-cat">
-        <h4>Architecture &amp; Engineering</h4>
-        <ul class="skill-list">
-          <li>Large Scale Software Architecture</li>
-          <li>System Design &amp; Integration</li>
-          <li>Distributed Systems</li>
-          <li>SLA &amp; QoS Management</li>
-          <li>Disaster Recovery (DR/BCP)</li>
-        </ul>
+      <div class="tl-item">
+        <span class="tl-tag res">Academia</span>
+        <div class="tl-meta">Sept 2008 — Dec 2008</div>
+        <div class="tl-role">Teaching Assistant</div>
+        <div class="tl-org">South Dakota State University, USA</div>
+        <p class="tl-desc">Teaching, tutoring, and grading Electronics laboratory for BSEE students.</p>
       </div>
-      <div class="skill-cat">
-        <h4>Big Data &amp; Cloud</h4>
-        <ul class="skill-list">
-          <li>Hadoop / Spark / Kafka</li>
-          <li>Cloudera / Hortonworks</li>
-          <li>AWS Cloud Ecosystem</li>
-          <li>Data Pipeline Engineering</li>
-          <li>Real-time Analytics</li>
-        </ul>
-      </div>
-      <div class="skill-cat">
-        <h4>Security &amp; Identity</h4>
-        <ul class="skill-list">
-          <li>Information Security Architecture</li>
-          <li>Identity &amp; Access Management</li>
-          <li>Forensic &amp; Defense</li>
-          <li>Application Security</li>
-          <li>Security Policy &amp; Hygiene</li>
-        </ul>
-      </div>
-      <div class="skill-cat">
-        <h4>Languages &amp; Tools</h4>
-        <ul class="skill-list">
-          <li>Java · Python · Perl</li>
-          <li>Scala · Shell Scripting</li>
-          <li>Linux Administration</li>
-          <li>SQL / NoSQL</li>
-          <li>Git · CI/CD pipelines</li>
-        </ul>
-      </div>
-      <div class="skill-cat">
-        <h4>Product &amp; Leadership</h4>
-        <ul class="skill-list">
-          <li>Product Roadmap &amp; Strategy</li>
-          <li>ICT Policy Making</li>
-          <li>Executive Leadership</li>
-          <li>Team Building &amp; Mentoring</li>
-          <li>Commercialization &amp; SLA</li>
-        </ul>
-      </div>
-      <div class="skill-cat">
-        <h4>Emerging Tech</h4>
-        <ul class="skill-list">
-          <li>Crypto Technologies</li>
-          <li>Web 3.0 Architecture</li>
-          <li>Blockchain Applications</li>
-          <li>Data Science</li>
-          <li>AI/ML Integration</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- CONTACT -->
-<section id="contact" class="fade-in">
-  <div class="section-label">// 04 — Connect</div>
-  <h2>Let's<br><em style="font-style:italic;color:var(--amber)">Talk.</em></h2>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-subtle);border:1px solid var(--border-subtle);max-width:600px;">
-    <div style="background:var(--bg2);padding:1.75rem;">
-      <div class="section-label" style="margin-bottom:0.75rem;">Email</div>
-      <a href="mailto:ncbijaya@gmail.com" style="color:var(--amber);text-decoration:none;font-size:14px;font-family:'IBM Plex Mono',monospace;word-break:break-all;">ncbijaya@gmail.com</a>
-    </div>
-    <div style="background:var(--bg2);padding:1.75rem;">
-      <div class="section-label" style="margin-bottom:0.75rem;">Phone</div>
-      <a href="tel:+9779841373753" style="color:var(--amber);text-decoration:none;font-size:14px;font-family:'IBM Plex Mono',monospace;">+977 9841 373 753</a>
-    </div>
-    <div style="background:var(--bg2);padding:1.75rem;">
-      <div class="section-label" style="margin-bottom:0.75rem;">LinkedIn</div>
-      <a href="https://www.linkedin.com/in/bijayagautam" target="_blank" rel="noopener" style="color:var(--amber);text-decoration:none;font-size:13px;font-family:'IBM Plex Mono',monospace;">in/bijayagautam ↗</a>
-    </div>
-    <div style="background:var(--bg2);padding:1.75rem;">
-      <div class="section-label" style="margin-bottom:0.75rem;">Location</div>
-      <span style="color:var(--text-muted);font-size:14px;font-family:'IBM Plex Mono',monospace;">Kathmandu, Nepal</span>
+      <div class="tl-item">
+        <span class="tl-tag res">Academia · Fellowship</span>
+        <div class="tl-meta">Aug 2006 — Jul 2008</div>
+        <div class="tl-role">Research Fellow</div>
+        <div class="tl-org">Kathmandu University, Nepal</div>
+        <p class="tl-desc">Received Research Fellowship from Happy House Federation, Switzerland to establish the Machine Vision Laboratory at Kathmandu University. Designed software for online monitoring of fluvial particles using optical and image processing. Developed ANN-based image classification and a Pelton turbine erosion measurement tool using digital image processing.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
+<!-- PHD -->
+<section id="research" class="z" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div class="sec-num">04</div><h2 class="sec-title">Doctoral Research</h2><div class="sec-rule"></div></div>
+    <div class="phd-panel">
+      <div>
+        <div class="phd-badge">PhD Candidate · 2023 – Present</div>
+        <h3>Entrepreneurship &amp; <em>Discursive Power</em></h3>
+        <p>Enrolled since 2023 at the <strong>Faculty of Humanities and Social Science, Tribhuvan University, Nepal</strong>. The research sits at the intersection of entrepreneurship studies and critical social theory — asking how power, discourse, and capital shape who becomes an entrepreneur, and on whose terms.</p>
+        <p>Drawing on three foundational theoretical traditions, the study interrogates whether entrepreneurship is a neutral economic activity or a contested site where narrative, legitimacy, and access are actively produced and policed — particularly in contexts like Nepal where formal institutions coexist with deep informal social structures.</p>
+      </div>
+      <div class="thinkers">
+        <div class="thinker">
+          <div class="thinker-name">Amartya Sen</div>
+          <div class="thinker-theory">Capability Approach</div>
+          <div class="thinker-desc">What real freedoms and capabilities do people have to pursue entrepreneurship? Questions whether formal opportunity translates into substantive possibility across social positions.</div>
+        </div>
+        <div class="thinker">
+          <div class="thinker-name">Pierre Bourdieu</div>
+          <div class="thinker-theory">Capital Theories</div>
+          <div class="thinker-desc">Social, cultural, and economic capital as determinants of entrepreneurial access and legitimacy — who holds the capital to be recognized as a credible founder.</div>
+        </div>
+        <div class="thinker">
+          <div class="thinker-name">Michel Foucault</div>
+          <div class="thinker-theory">Discourse &amp; Power</div>
+          <div class="thinker-desc">How discourse constructs the very category of "entrepreneur" — which narratives are authorized, which are silenced, and how power operates through knowledge regimes and institutional practice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THINKING -->
+<section id="thinking" class="z">
+  <div class="wrap">
+    <div class="sec-head"><div class="sec-num">05</div><h2 class="sec-title">Thinking</h2><div class="sec-rule"></div></div>
+    <div class="thought-layout">
+      <div class="thought-main">
+        <div class="thought-tag">Point of View</div>
+        <h3>Digital Sovereignty &amp; the Politics of Infrastructure</h3>
+        <p>Nepal — and the broader Global South — faces a defining choice: become consumers of architectures designed elsewhere, or become architects of systems that reflect their own laws, values, and futures. After building identity and security infrastructure at Apple, and advising the Government of Nepal on emergency response and datacenter policy, I have seen both sides: the power of large-scale systems and the vulnerability of governments that do not control their own digital stack.</p>
+        <p>My PhD research extends this into the social dimension — examining how discourse, power, and capital shape who gets to build, and for whom. Crypto and Web 3.0 fascinate me not only as technology but as political phenomena. Decentralization is a promise about power. Whether it delivers depends entirely on who architects the protocols and who is excluded from the table.</p>
+      </div>
+      <div class="thought-side">
+        <div class="t-item"><div class="t-cat">Web3</div><h4>What decentralization actually means for economies without stable institutions</h4></div>
+        <div class="t-item"><div class="t-cat">Policy</div><h4>Designing emergency response systems before the emergency arrives</h4></div>
+        <div class="t-item"><div class="t-cat">Security</div><h4>Why cybersecurity is a political problem dressed in technical clothing</h4></div>
+        <div class="t-item"><div class="t-cat">Research</div><h4>Critiques of development through Foucault's discourse and power theory</h4></div>
+        <div class="t-item"><div class="t-cat">Nepal</div><h4>Building local engineering culture as a national sovereignty issue</h4></div>
+        <div class="t-item"><div class="t-cat">Entrepreneurship</div><h4>Who gets to be a "legitimate" founder — and who decides?</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="z" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div class="sec-num">06</div><h2 class="sec-title">Publications</h2><div class="sec-rule"></div></div>
+    <div class="pub-list">
+      <div class="pub">
+        <div class="pub-yr">2023</div>
+        <div>
+          <div class="pub-title">Critiques of Development using Foucault's Discourse and Power Theory</div>
+          <div class="pub-venue">Journal of Social and Development Perspectives (JSDPJ)</div>
+          <a class="pub-link" href="https://doi.org/10.3126/jsdpj.v2i1.63253" target="_blank" rel="noopener">doi.org/10.3126/jsdpj.v2i1.63253 ↗</a>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-yr">2023</div>
+        <div>
+          <div class="pub-title">Spectral Estimation of Electroencephalogram Signal using ARMAX Model and Particle Swarm Optimization</div>
+          <div class="pub-venue">Journal of Advanced College of Engineering and Management (JACEM)</div>
+          <a class="pub-link" href="https://doi.org/10.3126/jacem.v8i2.55938" target="_blank" rel="noopener">doi.org/10.3126/jacem.v8i2.55938 ↗</a>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-yr">2008</div>
+        <div>
+          <div class="pub-title">Fluvial Particle Characterization using Artificial Neural Network and Spectral Image Processing</div>
+          <div class="pub-venue">SPIE Proceedings</div>
+          <a class="pub-link" href="http://adsabs.harvard.edu/abs/2008SPIE.6833E.102S" target="_blank" rel="noopener">adsabs.harvard.edu ↗</a>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-yr">2008</div>
+        <div>
+          <div class="pub-title">Computational Analysis of Pelton Bucket Tip Erosion using Digital Image Processing</div>
+          <div class="pub-venue">SPIE Proceedings</div>
+          <a class="pub-link" href="http://adsabs.harvard.edu/abs/2008SPIE.6833E.103S" target="_blank" rel="noopener">adsabs.harvard.edu ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="z">
+  <div class="wrap">
+    <div class="sec-head"><div class="sec-num">07</div><h2 class="sec-title">Education</h2><div class="sec-rule"></div></div>
+    <div class="edu-grid">
+      <div class="edu active">
+        <div class="edu-deg">PhD — Entrepreneurship &amp; Discursive Power</div>
+        <div class="edu-inst">Tribhuvan University · Faculty of Humanities &amp; Social Science</div>
+        <div class="edu-yr">2023 — Ongoing</div>
+        <div class="edu-note">Amartya Sen's Capability Approach · Bourdieu's Capital Theories · Foucault's Discourse &amp; Power</div>
+      </div>
+      <div class="edu">
+        <div class="edu-deg">Executive Leadership Program</div>
+        <div class="edu-inst">University of California, Berkeley</div>
+        <div class="edu-yr">2019</div>
+      </div>
+      <div class="edu">
+        <div class="edu-deg">Product Management Program</div>
+        <div class="edu-inst">University of California, Berkeley</div>
+        <div class="edu-yr">2018</div>
+      </div>
+      <div class="edu">
+        <div class="edu-deg">MSEE — Digital Signal Processing</div>
+        <div class="edu-inst">Lamar University, Texas, USA</div>
+        <div class="edu-yr">Jan 2009 — Dec 2010</div>
+      </div>
+      <div class="edu">
+        <div class="edu-deg">BE — Communication Engineering</div>
+        <div class="edu-inst">Kathmandu University, Kavre, Nepal</div>
+        <div class="edu-yr">Aug 2002 — Jul 2006</div>
+      </div>
+      <div class="edu">
+        <div class="edu-deg">Continuous Learning</div>
+        <div class="edu-inst">Technology writing since 2011 · Podcasts · Conferences · Webinars</div>
+        <div class="edu-yr">Ongoing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="z" style="padding-top:0;padding-bottom:100px">
+  <div class="wrap">
+    <div class="sec-head"><div class="sec-num">08</div><h2 class="sec-title">Leadership</h2><div class="sec-rule"></div></div>
+    <div class="lead-grid">
+      <div class="lead"><div class="lead-role">Central Executive Member</div><div class="lead-org">Micro, Small &amp; Medium Enterprises Association (MSME), Nepal</div><div class="lead-yr">2022 — Present</div></div>
+      <div class="lead"><div class="lead-role">Central Secretary &amp; Chair, International Relations Committee</div><div class="lead-org">Federation of Nepali Consumer Protection (FNCP), Nepal</div><div class="lead-yr">Jul 2022 — Jul 2023</div></div>
+      <div class="lead"><div class="lead-role">Executive Board Member</div><div class="lead-org">Global Nepali Professional Network, USA</div><div class="lead-yr">2018 — 2022</div></div>
+      <div class="lead"><div class="lead-role">President</div><div class="lead-org">Bibeksheel Nepali Dal, USA</div><div class="lead-yr">2018 — 2021</div></div>
+      <div class="lead"><div class="lead-role">President</div><div class="lead-org">Society of Electrical and Electronics Engineers, Kathmandu University</div><div class="lead-yr">Aug 2005 — Jul 2006</div></div>
+      <div class="lead"><div class="lead-role">Student Member</div><div class="lead-org">SPIE (Oct 2008 – Sep 2009) · IEEE (Sept 2008 – Aug 2009)</div><div class="lead-yr">2008 — 2009</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-band z" id="contact">
+  <div class="contact-in">
+    <div class="contact-l">
+      <h2>Let's think<br><em>together.</em></h2>
+      <p>Whether it's a technology architecture challenge, a national policy conversation, a speaking opportunity, a research collaboration, or a new venture — I am interested in problems that sit at the edge of what systems can do and what society needs.</p>
+    </div>
+    <div class="contact-r">
+      <a href="mailto:ncbijaya@gmail.com" class="clink"><span class="cl-lbl">Email</span><span class="cl-val">ncbijaya@gmail.com</span></a>
+      <a href="tel:+9779841373753" class="clink"><span class="cl-lbl">Phone</span><span class="cl-val">+977 9841373753</span></a>
+      <a href="https://www.linkedin.com/in/bijayagautam/" class="clink" target="_blank" rel="noopener"><span class="cl-lbl">LinkedIn</span><span class="cl-val">linkedin.com/in/bijayagautam</span></a>
+      <a href="https://github.com/bijaya1" class="clink" target="_blank" rel="noopener"><span class="cl-lbl">GitHub</span><span class="cl-val">github.com/bijaya1</span></a>
+      <div class="clink"><span class="cl-lbl">Location</span><span class="cl-val">Kathmandu, Nepal</span></div>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
-<footer>
-  <div class="footer-name">Bijaya Gautam</div>
-  <div class="footer-links">
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="mailto:ncbijaya@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/bijayagautam" target="_blank" rel="noopener">LinkedIn</a>
+<footer class="z">
+  <div class="fin">
+    <div class="copy">© 2025 <span>Bijaya Gautam</span> · bijaya1.github.io/bijaya1</div>
+    <div class="flinks">
+      <a href="https://www.linkedin.com/in/bijayagautam/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/bijaya1" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:ncbijaya@gmail.com">Email</a>
+    </div>
   </div>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
       if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
+        setTimeout(() => e.target.classList.add('vis'), i * 60);
+        obs.unobserve(e.target);
       }
     });
   }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll('.tl-item').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
