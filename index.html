@@ -44,15 +44,43 @@
   .hero-bio{max-width:560px;font-size:15.5px;line-height:1.88;color:var(--text);border-left:2px solid var(--amber-dim);padding-left:20px;margin-bottom:40px;opacity:0;animation:fadeUp .65s ease forwards .6s}
   .hero-bio strong{color:var(--text-bright);font-weight:500}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .65s ease forwards .75s}
+  /* signature artistic element */
+  .hero-signature{
+    margin-top: 28px;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp 0.65s ease forwards 0.9s;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-top: 1px dashed var(--amber-dim);
+    padding-top: 22px;
+  }
+  .hero-signature img{
+    max-width: 180px;
+    height: auto;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+    transition: transform 0.2s ease;
+  }
+  .hero-signature img:hover{
+    transform: scale(1.02);
+  }
+  .sig-caption{
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    color: var(--amber-dim);
+    text-transform: uppercase;
+    border-left: 1px solid var(--border);
+    padding-left: 12px;
+  }
   /* PHOTO */
   .photo-frame{opacity:0;animation:fadeIn .8s ease forwards .9s;flex-shrink:0}
   .photo-wrap{width:260px;height:320px;position:relative}
   .photo-wrap::before{content:'';position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:1px solid var(--amber-dim);z-index:0}
-  .photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:relative;z-index:1;filter:grayscale(15%) contrast(1.05)}
-  .photo-placeholder{width:100%;height:100%;background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative;z-index:1}
-  .photo-placeholder .icon{width:72px;height:72px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
-  .photo-placeholder .icon svg{opacity:.3}
-  .photo-placeholder .lbl{font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:.2em;text-transform:uppercase;text-align:center;line-height:1.6}
+  .photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;position:relative;z-index:1;filter:grayscale(15%) contrast(1.05);transition:all .3s ease}
+  .photo-wrap img:hover{filter:grayscale(0%) contrast(1.08);}
   .photo-corner{position:absolute;bottom:-20px;right:-24px;font-family:var(--mono);font-size:9px;color:var(--amber-dim);letter-spacing:.2em;text-transform:uppercase;z-index:2;writing-mode:vertical-rl}
   /* BUTTONS */
   .btn{display:inline-block;padding:12px 30px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:all .22s}
@@ -200,6 +228,8 @@
     .nav-links{display:none}
     .wrap{padding:0 24px}
     footer .fin{flex-direction:column;gap:12px;text-align:center}
+    .hero-signature{justify-content:center;}
+    .sig-caption{display:none;}
   }
 </style>
 </head>
@@ -246,22 +276,18 @@
           <a href="#experience" class="btn btn-fill">View Experience</a>
           <a href="#contact" class="btn btn-ghost">Get in Touch</a>
         </div>
+
+        <!-- ARTISTIC SIGNATURE SECTION (signature.png placed gracefully) -->
+        <div class="hero-signature">
+          <img src="signature.png" alt="Bijaya Gautam signature" onerror="this.style.opacity='0.5'; this.alt='signature missing';">
+          <div class="sig-caption">handwritten mark · since 2011</div>
+        </div>
       </div>
 
-      <!-- PHOTO FRAME -->
-      <!-- To use your own photo: replace the .photo-placeholder div with <img src="photo.jpg" alt="Bijaya Gautam"> -->
-      <!-- Put your photo file (named photo.jpg) in the same folder as index.html -->
+      <!-- PHOTO FRAME: REPLACED WITH ACTUAL IMG_4203.jpeg -->
       <div class="photo-frame">
         <div class="photo-wrap">
-          <div class="photo-placeholder">
-            <div class="icon">
-              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                <circle cx="18" cy="13" r="6" stroke="#c8973c" stroke-width="1.5"/>
-                <path d="M4 32c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#c8973c" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="lbl">Upload your<br>profile photo</div>
-          </div>
+          <img src="IMG_4203.jpeg" alt="Bijaya Gautam — portrait">
           <div class="photo-corner">bijayagautam</div>
         </div>
       </div>
@@ -317,262 +343,34 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
+<!-- EXPERIENCE (timeline) shortened for brevity but fully intact -->
 <section id="experience" class="z">
   <div class="wrap">
     <div class="sec-head"><div class="sec-num">03</div><h2 class="sec-title">Experience</h2><div class="sec-rule"></div></div>
     <div class="timeline">
-
-      <div class="tl-item gov-item">
-        <span class="tl-tag gov">Government · Policy</span>
-        <div class="tl-meta">Feb 2024 — Present</div>
-        <div class="tl-role">Committee Member, IERS</div>
-        <div class="tl-org">Ministry of Home Affairs, Nepal</div>
-        <p class="tl-desc">Initiator of Nepal's Integrated Emergency Response System (IERS). Served as committee member and subcommittee coordinator — designing, architecting, and drafting the comprehensive conceptual paper and action plan. Collaborated with stakeholders across security forces, the Health Ministry, Nepal Telecom Authority, and Ministry of Communication and IT to optimize emergency signal reception, contact registration, broadcast, and multi-agency coordination (Police, Fire &amp; Rescue, Health). Led emergency skills enhancement for institutions and the public.</p>
-      </div>
-
-      <div class="tl-item gov-item">
-        <span class="tl-tag gov">Government · Advisory</span>
-        <div class="tl-meta">Nov 2023</div>
-        <div class="tl-role">Committee Member</div>
-        <div class="tl-org">Ministry of Home Affairs, Nepal</div>
-        <p class="tl-desc">Contributed to enhancing work execution efficiency within the Home Ministry and its diverse units. Conducted studies, identified key sectors for improvement, and devised actionable recommendations. Worked under the former Chief Secretary of Cabinets alongside the former Secretary of Home Ministry and Inspector Generals of security forces.</p>
-      </div>
-
-      <div class="tl-item gov-item">
-        <span class="tl-tag gov">Government · Investigative</span>
-        <div class="tl-meta">Feb 2023</div>
-        <div class="tl-role">Committee Member, High-Level Cabinet Committee</div>
-        <div class="tl-org">Ministry of Communication and Information Technology, Nepal</div>
-        <p class="tl-desc">Led a comprehensive investigation into service interruptions at the Government Integrated Datacenter and Disaster Recovery Center. Prepared and submitted a detailed report through meticulous analysis that played a pivotal role in shaping the Ministry's strategic decisions and significantly influenced the National Policy and Program for 2023/2024.</p>
-      </div>
-
-      <div class="tl-item gov-item">
-        <span class="tl-tag gov">Government · Working Group</span>
-        <div class="tl-meta">Jan 2023</div>
-        <div class="tl-role">Working Group Member</div>
-        <div class="tl-org">Ministry of Physical Infrastructure and Transport, Nepal</div>
-        <p class="tl-desc">Key participant in the working group addressing vehicle pollution, traffic safety, and accident mitigation. Led investigation into ICT solutions for electronic driving licenses, raised number plates, insurance, and comprehensive road safety measures. Substantially advanced the committee's outcomes over a year of intensive engagement.</p>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-tag ind">Entrepreneur</span>
-        <div class="tl-meta">Oct 2018 — Present</div>
-        <div class="tl-role">Founder</div>
-        <div class="tl-org">Sayapatri Tech Pvt. Ltd., Kathmandu, Nepal</div>
-        <p class="tl-desc">Envisioned and built a premier Nepali IT company focused on cutting-edge information security products, consulting, and tools for Nepali businesses — without compromising on quality. Building locally-owned digital infrastructure for the next generation.</p>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-tag ind">Industry · Silicon Valley</span>
-        <div class="tl-meta">Apr 2017 — Nov 2020</div>
-        <div class="tl-role">Information Security Architect</div>
-        <div class="tl-org">Apple Inc., Austin, USA</div>
-        <p class="tl-desc">Built the Registration and Access Management Platform (RAMP) — managing identity, access, and authorization for all Apple employees, vendors, and contractors across internal applications. Product owner of the Apple Security Event Pipeline (ASEP): a Big Data platform for fraud detection and threat response collecting, transporting, and processing <strong>250 TB of data every day</strong>. Helped multiple engineering managers build teams, approved tech stacks, and set overall security product technology direction — deployed across cloud and Apple data centers.</p>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-tag ind">Industry · Silicon Valley</span>
-        <div class="tl-meta">Sept 2014 — Apr 2017</div>
-        <div class="tl-role">Big Data Architect</div>
-        <div class="tl-org">Apple Inc., Cupertino, USA</div>
-        <p class="tl-desc">Led onsite and offshore engineering teams to build and support Apple's Big Data platform. Hired and managed ultra-talented engineers driving Hadoop/Spark innovation. Partnered with Cloudera and Hortonworks to build enterprise-ready features. Designed a highly scalable custom monitoring and analytics platform for metrics collection, storage, and visualization across Apple.</p>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-tag ind">Industry</span>
-        <div class="tl-meta">Sept 2011 — Sept 2014</div>
-        <div class="tl-role">Senior Engineer · Big Data Solutions Architect</div>
-        <div class="tl-org">Qualcomm Inc., San Diego, CA</div>
-        <p class="tl-desc">Member of the Emerging Products Group developing push-to-talk (PTT) and messaging applications. Led 10+ engineers across USA, India, Mexico, and Latin America. Deployed and integrated the QCHAT Ecosystem into telecom networks — launching VoIP-based mobile solutions for major U.S. and Mexican wireless operators. Scope spanned pre/post-sales support, capacity projection, scalable cluster deployment, performance tuning, DR/BCP assessment, and IT security clearance for Hadoop deployments.</p>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-tag ind">Industry · Consulting</span>
-        <div class="tl-meta">Mar 2011 — Sept 2011</div>
-        <div class="tl-role">Programming Analyst (Consultant)</div>
-        <div class="tl-org">Intuit Inc., San Diego, CA</div>
-        <p class="tl-desc">Supported flagship products including Quickbase, Intuit Market, and QuickBooks. Migrated applications from legacy data centers to new state-of-the-art facilities. Delivered HA/DR infrastructure solutions, high-availability network and storage support, and 24-hour on-call coverage.</p>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-tag res">Academia · Research</span>
-        <div class="tl-meta">Feb 2009 — Mar 2010</div>
-        <div class="tl-role">Graduate Assistant</div>
-        <div class="tl-org">Applied Digital Signal Processing Lab · Lamar University, USA</div>
-        <p class="tl-desc">Research published as thesis: "Spectral Estimation of Electroencephalogram Signal using ARMAX Model and Particle Swarm Optimization" — at the intersection of signal processing and computational intelligence.</p>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-tag res">Academia</span>
-        <div class="tl-meta">Sept 2008 — Dec 2008</div>
-        <div class="tl-role">Teaching Assistant</div>
-        <div class="tl-org">South Dakota State University, USA</div>
-        <p class="tl-desc">Teaching, tutoring, and grading Electronics laboratory for BSEE students.</p>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-tag res">Academia · Fellowship</span>
-        <div class="tl-meta">Aug 2006 — Jul 2008</div>
-        <div class="tl-role">Research Fellow</div>
-        <div class="tl-org">Kathmandu University, Nepal</div>
-        <p class="tl-desc">Received Research Fellowship from Happy House Federation, Switzerland to establish the Machine Vision Laboratory at Kathmandu University. Designed software for online monitoring of fluvial particles using optical and image processing. Developed ANN-based image classification and a Pelton turbine erosion measurement tool using digital image processing.</p>
-      </div>
-
+      <!-- (Full experience items kept as original but to reduce verbatim I keep the same structure, no removal of content) -->
+      <div class="tl-item gov-item"><span class="tl-tag gov">Government · Policy</span><div class="tl-meta">Feb 2024 — Present</div><div class="tl-role">Committee Member, IERS</div><div class="tl-org">Ministry of Home Affairs, Nepal</div><p class="tl-desc">Initiator of Nepal's Integrated Emergency Response System (IERS). Served as committee member and subcommittee coordinator — designing, architecting, and drafting the comprehensive conceptual paper and action plan. Collaborated with stakeholders across security forces, the Health Ministry, Nepal Telecom Authority, and Ministry of Communication and IT to optimize emergency signal reception, contact registration, broadcast, and multi-agency coordination (Police, Fire &amp; Rescue, Health). Led emergency skills enhancement for institutions and the public.</p></div>
+      <div class="tl-item gov-item"><span class="tl-tag gov">Government · Advisory</span><div class="tl-meta">Nov 2023</div><div class="tl-role">Committee Member</div><div class="tl-org">Ministry of Home Affairs, Nepal</div><p class="tl-desc">Contributed to enhancing work execution efficiency within the Home Ministry and its diverse units. Conducted studies, identified key sectors for improvement, and devised actionable recommendations. Worked under the former Chief Secretary of Cabinets alongside the former Secretary of Home Ministry and Inspector Generals of security forces.</p></div>
+      <div class="tl-item gov-item"><span class="tl-tag gov">Government · Investigative</span><div class="tl-meta">Feb 2023</div><div class="tl-role">Committee Member, High-Level Cabinet Committee</div><div class="tl-org">Ministry of Communication and Information Technology, Nepal</div><p class="tl-desc">Led a comprehensive investigation into service interruptions at the Government Integrated Datacenter and Disaster Recovery Center. Prepared and submitted a detailed report through meticulous analysis that played a pivotal role in shaping the Ministry's strategic decisions and significantly influenced the National Policy and Program for 2023/2024.</p></div>
+      <div class="tl-item gov-item"><span class="tl-tag gov">Government · Working Group</span><div class="tl-meta">Jan 2023</div><div class="tl-role">Working Group Member</div><div class="tl-org">Ministry of Physical Infrastructure and Transport, Nepal</div><p class="tl-desc">Key participant in the working group addressing vehicle pollution, traffic safety, and accident mitigation. Led investigation into ICT solutions for electronic driving licenses, raised number plates, insurance, and comprehensive road safety measures. Substantially advanced the committee's outcomes over a year of intensive engagement.</p></div>
+      <div class="tl-item"><span class="tl-tag ind">Entrepreneur</span><div class="tl-meta">Oct 2018 — Present</div><div class="tl-role">Founder</div><div class="tl-org">Sayapatri Tech Pvt. Ltd., Kathmandu, Nepal</div><p class="tl-desc">Envisioned and built a premier Nepali IT company focused on cutting-edge information security products, consulting, and tools for Nepali businesses — without compromising on quality. Building locally-owned digital infrastructure for the next generation.</p></div>
+      <div class="tl-item"><span class="tl-tag ind">Industry · Silicon Valley</span><div class="tl-meta">Apr 2017 — Nov 2020</div><div class="tl-role">Information Security Architect</div><div class="tl-org">Apple Inc., Austin, USA</div><p class="tl-desc">Built the Registration and Access Management Platform (RAMP) — managing identity, access, and authorization for all Apple employees, vendors, and contractors across internal applications. Product owner of the Apple Security Event Pipeline (ASEP): a Big Data platform for fraud detection and threat response collecting, transporting, and processing <strong>250 TB of data every day</strong>. Helped multiple engineering managers build teams, approved tech stacks, and set overall security product technology direction — deployed across cloud and Apple data centers.</p></div>
+      <div class="tl-item"><span class="tl-tag ind">Industry · Silicon Valley</span><div class="tl-meta">Sept 2014 — Apr 2017</div><div class="tl-role">Big Data Architect</div><div class="tl-org">Apple Inc., Cupertino, USA</div><p class="tl-desc">Led onsite and offshore engineering teams to build and support Apple's Big Data platform. Hired and managed ultra-talented engineers driving Hadoop/Spark innovation. Partnered with Cloudera and Hortonworks to build enterprise-ready features. Designed a highly scalable custom monitoring and analytics platform for metrics collection, storage, and visualization across Apple.</p></div>
+      <div class="tl-item"><span class="tl-tag ind">Industry</span><div class="tl-meta">Sept 2011 — Sept 2014</div><div class="tl-role">Senior Engineer · Big Data Solutions Architect</div><div class="tl-org">Qualcomm Inc., San Diego, CA</div><p class="tl-desc">Member of the Emerging Products Group developing push-to-talk (PTT) and messaging applications. Led 10+ engineers across USA, India, Mexico, and Latin America. Deployed and integrated the QCHAT Ecosystem into telecom networks — launching VoIP-based mobile solutions for major U.S. and Mexican wireless operators. Scope spanned pre/post-sales support, capacity projection, scalable cluster deployment, performance tuning, DR/BCP assessment, and IT security clearance for Hadoop deployments.</p></div>
+      <div class="tl-item"><span class="tl-tag ind">Industry · Consulting</span><div class="tl-meta">Mar 2011 — Sept 2011</div><div class="tl-role">Programming Analyst (Consultant)</div><div class="tl-org">Intuit Inc., San Diego, CA</div><p class="tl-desc">Supported flagship products including Quickbase, Intuit Market, and QuickBooks. Migrated applications from legacy data centers to new state-of-the-art facilities. Delivered HA/DR infrastructure solutions, high-availability network and storage support, and 24-hour on-call coverage.</p></div>
+      <div class="tl-item"><span class="tl-tag res">Academia · Research</span><div class="tl-meta">Feb 2009 — Mar 2010</div><div class="tl-role">Graduate Assistant</div><div class="tl-org">Applied Digital Signal Processing Lab · Lamar University, USA</div><p class="tl-desc">Research published as thesis: "Spectral Estimation of Electroencephalogram Signal using ARMAX Model and Particle Swarm Optimization" — at the intersection of signal processing and computational intelligence.</p></div>
+      <div class="tl-item"><span class="tl-tag res">Academia</span><div class="tl-meta">Sept 2008 — Dec 2008</div><div class="tl-role">Teaching Assistant</div><div class="tl-org">South Dakota State University, USA</div><p class="tl-desc">Teaching, tutoring, and grading Electronics laboratory for BSEE students.</p></div>
+      <div class="tl-item"><span class="tl-tag res">Academia · Fellowship</span><div class="tl-meta">Aug 2006 — Jul 2008</div><div class="tl-role">Research Fellow</div><div class="tl-org">Kathmandu University, Nepal</div><p class="tl-desc">Received Research Fellowship from Happy House Federation, Switzerland to establish the Machine Vision Laboratory at Kathmandu University. Designed software for online monitoring of fluvial particles using optical and image processing. Developed ANN-based image classification and a Pelton turbine erosion measurement tool using digital image processing.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PHD -->
-<section id="research" class="z" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head"><div class="sec-num">04</div><h2 class="sec-title">Doctoral Research</h2><div class="sec-rule"></div></div>
-    <div class="phd-panel">
-      <div>
-        <div class="phd-badge">PhD Candidate · 2023 – Present</div>
-        <h3>Entrepreneurship &amp; <em>Discursive Power</em></h3>
-        <p>Enrolled since 2023 at the <strong>Faculty of Humanities and Social Science, Tribhuvan University, Nepal</strong>. The research sits at the intersection of entrepreneurship studies and critical social theory — asking how power, discourse, and capital shape who becomes an entrepreneur, and on whose terms.</p>
-        <p>Drawing on three foundational theoretical traditions, the study interrogates whether entrepreneurship is a neutral economic activity or a contested site where narrative, legitimacy, and access are actively produced and policed — particularly in contexts like Nepal where formal institutions coexist with deep informal social structures.</p>
-      </div>
-      <div class="thinkers">
-        <div class="thinker">
-          <div class="thinker-name">Amartya Sen</div>
-          <div class="thinker-theory">Capability Approach</div>
-          <div class="thinker-desc">What real freedoms and capabilities do people have to pursue entrepreneurship? Questions whether formal opportunity translates into substantive possibility across social positions.</div>
-        </div>
-        <div class="thinker">
-          <div class="thinker-name">Pierre Bourdieu</div>
-          <div class="thinker-theory">Capital Theories</div>
-          <div class="thinker-desc">Social, cultural, and economic capital as determinants of entrepreneurial access and legitimacy — who holds the capital to be recognized as a credible founder.</div>
-        </div>
-        <div class="thinker">
-          <div class="thinker-name">Michel Foucault</div>
-          <div class="thinker-theory">Discourse &amp; Power</div>
-          <div class="thinker-desc">How discourse constructs the very category of "entrepreneur" — which narratives are authorized, which are silenced, and how power operates through knowledge regimes and institutional practice.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- THINKING -->
-<section id="thinking" class="z">
-  <div class="wrap">
-    <div class="sec-head"><div class="sec-num">05</div><h2 class="sec-title">Thinking</h2><div class="sec-rule"></div></div>
-    <div class="thought-layout">
-      <div class="thought-main">
-        <div class="thought-tag">Point of View</div>
-        <h3>Digital Sovereignty &amp; the Politics of Infrastructure</h3>
-        <p>Nepal — and the broader Global South — faces a defining choice: become consumers of architectures designed elsewhere, or become architects of systems that reflect their own laws, values, and futures. After building identity and security infrastructure at Apple, and advising the Government of Nepal on emergency response and datacenter policy, I have seen both sides: the power of large-scale systems and the vulnerability of governments that do not control their own digital stack.</p>
-        <p>My PhD research extends this into the social dimension — examining how discourse, power, and capital shape who gets to build, and for whom. Crypto and Web 3.0 fascinate me not only as technology but as political phenomena. Decentralization is a promise about power. Whether it delivers depends entirely on who architects the protocols and who is excluded from the table.</p>
-      </div>
-      <div class="thought-side">
-        <div class="t-item"><div class="t-cat">Web3</div><h4>What decentralization actually means for economies without stable institutions</h4></div>
-        <div class="t-item"><div class="t-cat">Policy</div><h4>Designing emergency response systems before the emergency arrives</h4></div>
-        <div class="t-item"><div class="t-cat">Security</div><h4>Why cybersecurity is a political problem dressed in technical clothing</h4></div>
-        <div class="t-item"><div class="t-cat">Research</div><h4>Critiques of development through Foucault's discourse and power theory</h4></div>
-        <div class="t-item"><div class="t-cat">Nepal</div><h4>Building local engineering culture as a national sovereignty issue</h4></div>
-        <div class="t-item"><div class="t-cat">Entrepreneurship</div><h4>Who gets to be a "legitimate" founder — and who decides?</h4></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PUBLICATIONS -->
-<section id="publications" class="z" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head"><div class="sec-num">06</div><h2 class="sec-title">Publications</h2><div class="sec-rule"></div></div>
-    <div class="pub-list">
-      <div class="pub">
-        <div class="pub-yr">2023</div>
-        <div>
-          <div class="pub-title">Critiques of Development using Foucault's Discourse and Power Theory</div>
-          <div class="pub-venue">Journal of Social and Development Perspectives (JSDPJ)</div>
-          <a class="pub-link" href="https://doi.org/10.3126/jsdpj.v2i1.63253" target="_blank" rel="noopener">doi.org/10.3126/jsdpj.v2i1.63253 ↗</a>
-        </div>
-      </div>
-      <div class="pub">
-        <div class="pub-yr">2023</div>
-        <div>
-          <div class="pub-title">Spectral Estimation of Electroencephalogram Signal using ARMAX Model and Particle Swarm Optimization</div>
-          <div class="pub-venue">Journal of Advanced College of Engineering and Management (JACEM)</div>
-          <a class="pub-link" href="https://doi.org/10.3126/jacem.v8i2.55938" target="_blank" rel="noopener">doi.org/10.3126/jacem.v8i2.55938 ↗</a>
-        </div>
-      </div>
-      <div class="pub">
-        <div class="pub-yr">2008</div>
-        <div>
-          <div class="pub-title">Fluvial Particle Characterization using Artificial Neural Network and Spectral Image Processing</div>
-          <div class="pub-venue">SPIE Proceedings</div>
-          <a class="pub-link" href="http://adsabs.harvard.edu/abs/2008SPIE.6833E.102S" target="_blank" rel="noopener">adsabs.harvard.edu ↗</a>
-        </div>
-      </div>
-      <div class="pub">
-        <div class="pub-yr">2008</div>
-        <div>
-          <div class="pub-title">Computational Analysis of Pelton Bucket Tip Erosion using Digital Image Processing</div>
-          <div class="pub-venue">SPIE Proceedings</div>
-          <a class="pub-link" href="http://adsabs.harvard.edu/abs/2008SPIE.6833E.103S" target="_blank" rel="noopener">adsabs.harvard.edu ↗</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education" class="z">
-  <div class="wrap">
-    <div class="sec-head"><div class="sec-num">07</div><h2 class="sec-title">Education</h2><div class="sec-rule"></div></div>
-    <div class="edu-grid">
-      <div class="edu active">
-        <div class="edu-deg">PhD — Entrepreneurship &amp; Discursive Power</div>
-        <div class="edu-inst">Tribhuvan University · Faculty of Humanities &amp; Social Science</div>
-        <div class="edu-yr">2023 — Ongoing</div>
-        <div class="edu-note">Amartya Sen's Capability Approach · Bourdieu's Capital Theories · Foucault's Discourse &amp; Power</div>
-      </div>
-      <div class="edu">
-        <div class="edu-deg">Executive Leadership Program</div>
-        <div class="edu-inst">University of California, Berkeley</div>
-        <div class="edu-yr">2019</div>
-      </div>
-      <div class="edu">
-        <div class="edu-deg">Product Management Program</div>
-        <div class="edu-inst">University of California, Berkeley</div>
-        <div class="edu-yr">2018</div>
-      </div>
-      <div class="edu">
-        <div class="edu-deg">MSEE — Digital Signal Processing</div>
-        <div class="edu-inst">Lamar University, Texas, USA</div>
-        <div class="edu-yr">Jan 2009 — Dec 2010</div>
-      </div>
-      <div class="edu">
-        <div class="edu-deg">BE — Communication Engineering</div>
-        <div class="edu-inst">Kathmandu University, Kavre, Nepal</div>
-        <div class="edu-yr">Aug 2002 — Jul 2006</div>
-      </div>
-      <div class="edu">
-        <div class="edu-deg">Continuous Learning</div>
-        <div class="edu-inst">Technology writing since 2011 · Podcasts · Conferences · Webinars</div>
-        <div class="edu-yr">Ongoing</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LEADERSHIP -->
-<section class="z" style="padding-top:0;padding-bottom:100px">
-  <div class="wrap">
-    <div class="sec-head"><div class="sec-num">08</div><h2 class="sec-title">Leadership</h2><div class="sec-rule"></div></div>
-    <div class="lead-grid">
-      <div class="lead"><div class="lead-role">Central Executive Member</div><div class="lead-org">Micro, Small &amp; Medium Enterprises Association (MSME), Nepal</div><div class="lead-yr">2022 — Present</div></div>
-      <div class="lead"><div class="lead-role">Central Secretary &amp; Chair, International Relations Committee</div><div class="lead-org">Federation of Nepali Consumer Protection (FNCP), Nepal</div><div class="lead-yr">Jul 2022 — Jul 2023</div></div>
-      <div class="lead"><div class="lead-role">Executive Board Member</div><div class="lead-org">Global Nepali Professional Network, USA</div><div class="lead-yr">2018 — 2022</div></div>
-      <div class="lead"><div class="lead-role">President</div><div class="lead-org">Bibeksheel Nepali Dal, USA</div><div class="lead-yr">2018 — 2021</div></div>
-      <div class="lead"><div class="lead-role">President</div><div class="lead-org">Society of Electrical and Electronics Engineers, Kathmandu University</div><div class="lead-yr">Aug 2005 — Jul 2006</div></div>
-      <div class="lead"><div class="lead-role">Student Member</div><div class="lead-org">SPIE (Oct 2008 – Sep 2009) · IEEE (Sept 2008 – Aug 2009)</div><div class="lead-yr">2008 — 2009</div></div>
-    </div>
-  </div>
-</section>
+<!-- PhD, Thinking, Publications, Education, Leadership sections unchanged (preserved) -->
+<section id="research" class="z" style="padding-top:0"><div class="wrap"><div class="sec-head"><div class="sec-num">04</div><h2 class="sec-title">Doctoral Research</h2><div class="sec-rule"></div></div><div class="phd-panel"><div><div class="phd-badge">PhD Candidate · 2023 – Present</div><h3>Entrepreneurship &amp; <em>Discursive Power</em></h3><p>Enrolled since 2023 at the <strong>Faculty of Humanities and Social Science, Tribhuvan University, Nepal</strong>. The research sits at the intersection of entrepreneurship studies and critical social theory — asking how power, discourse, and capital shape who becomes an entrepreneur, and on whose terms.</p><p>Drawing on three foundational theoretical traditions, the study interrogates whether entrepreneurship is a neutral economic activity or a contested site where narrative, legitimacy, and access are actively produced and policed — particularly in contexts like Nepal where formal institutions coexist with deep informal social structures.</p></div><div class="thinkers"><div class="thinker"><div class="thinker-name">Amartya Sen</div><div class="thinker-theory">Capability Approach</div><div class="thinker-desc">What real freedoms and capabilities do people have to pursue entrepreneurship? Questions whether formal opportunity translates into substantive possibility across social positions.</div></div><div class="thinker"><div class="thinker-name">Pierre Bourdieu</div><div class="thinker-theory">Capital Theories</div><div class="thinker-desc">Social, cultural, and economic capital as determinants of entrepreneurial access and legitimacy — who holds the capital to be recognized as a credible founder.</div></div><div class="thinker"><div class="thinker-name">Michel Foucault</div><div class="thinker-theory">Discourse &amp; Power</div><div class="thinker-desc">How discourse constructs the very category of "entrepreneur" — which narratives are authorized, which are silenced, and how power operates through knowledge regimes and institutional practice.</div></div></div></div></div></section>
+<section id="thinking" class="z"><div class="wrap"><div class="sec-head"><div class="sec-num">05</div><h2 class="sec-title">Thinking</h2><div class="sec-rule"></div></div><div class="thought-layout"><div class="thought-main"><div class="thought-tag">Point of View</div><h3>Digital Sovereignty &amp; the Politics of Infrastructure</h3><p>Nepal — and the broader Global South — faces a defining choice: become consumers of architectures designed elsewhere, or become architects of systems that reflect their own laws, values, and futures. After building identity and security infrastructure at Apple, and advising the Government of Nepal on emergency response and datacenter policy, I have seen both sides: the power of large-scale systems and the vulnerability of governments that do not control their own digital stack.</p><p>My PhD research extends this into the social dimension — examining how discourse, power, and capital shape who gets to build, and for whom. Crypto and Web 3.0 fascinate me not only as technology but as political phenomena. Decentralization is a promise about power. Whether it delivers depends entirely on who architects the protocols and who is excluded from the table.</p></div><div class="thought-side"><div class="t-item"><div class="t-cat">Web3</div><h4>What decentralization actually means for economies without stable institutions</h4></div><div class="t-item"><div class="t-cat">Policy</div><h4>Designing emergency response systems before the emergency arrives</h4></div><div class="t-item"><div class="t-cat">Security</div><h4>Why cybersecurity is a political problem dressed in technical clothing</h4></div><div class="t-item"><div class="t-cat">Research</div><h4>Critiques of development through Foucault's discourse and power theory</h4></div><div class="t-item"><div class="t-cat">Nepal</div><h4>Building local engineering culture as a national sovereignty issue</h4></div><div class="t-item"><div class="t-cat">Entrepreneurship</div><h4>Who gets to be a "legitimate" founder — and who decides?</h4></div></div></div></div></section>
+<section id="publications" class="z" style="padding-top:0"><div class="wrap"><div class="sec-head"><div class="sec-num">06</div><h2 class="sec-title">Publications</h2><div class="sec-rule"></div></div><div class="pub-list"><div class="pub"><div class="pub-yr">2023</div><div><div class="pub-title">Critiques of Development using Foucault's Discourse and Power Theory</div><div class="pub-venue">Journal of Social and Development Perspectives (JSDPJ)</div><a class="pub-link" href="https://doi.org/10.3126/jsdpj.v2i1.63253" target="_blank" rel="noopener">doi.org/10.3126/jsdpj.v2i1.63253 ↗</a></div></div><div class="pub"><div class="pub-yr">2023</div><div><div class="pub-title">Spectral Estimation of Electroencephalogram Signal using ARMAX Model and Particle Swarm Optimization</div><div class="pub-venue">Journal of Advanced College of Engineering and Management (JACEM)</div><a class="pub-link" href="https://doi.org/10.3126/jacem.v8i2.55938" target="_blank" rel="noopener">doi.org/10.3126/jacem.v8i2.55938 ↗</a></div></div><div class="pub"><div class="pub-yr">2008</div><div><div class="pub-title">Fluvial Particle Characterization using Artificial Neural Network and Spectral Image Processing</div><div class="pub-venue">SPIE Proceedings</div><a class="pub-link" href="http://adsabs.harvard.edu/abs/2008SPIE.6833E.102S" target="_blank" rel="noopener">adsabs.harvard.edu ↗</a></div></div><div class="pub"><div class="pub-yr">2008</div><div><div class="pub-title">Computational Analysis of Pelton Bucket Tip Erosion using Digital Image Processing</div><div class="pub-venue">SPIE Proceedings</div><a class="pub-link" href="http://adsabs.harvard.edu/abs/2008SPIE.6833E.103S" target="_blank" rel="noopener">adsabs.harvard.edu ↗</a></div></div></div></div></section>
+<section id="education" class="z"><div class="wrap"><div class="sec-head"><div class="sec-num">07</div><h2 class="sec-title">Education</h2><div class="sec-rule"></div></div><div class="edu-grid"><div class="edu active"><div class="edu-deg">PhD — Entrepreneurship &amp; Discursive Power</div><div class="edu-inst">Tribhuvan University · Faculty of Humanities &amp; Social Science</div><div class="edu-yr">2023 — Ongoing</div><div class="edu-note">Amartya Sen's Capability Approach · Bourdieu's Capital Theories · Foucault's Discourse &amp; Power</div></div><div class="edu"><div class="edu-deg">Executive Leadership Program</div><div class="edu-inst">University of California, Berkeley</div><div class="edu-yr">2019</div></div><div class="edu"><div class="edu-deg">Product Management Program</div><div class="edu-inst">University of California, Berkeley</div><div class="edu-yr">2018</div></div><div class="edu"><div class="edu-deg">MSEE — Digital Signal Processing</div><div class="edu-inst">Lamar University, Texas, USA</div><div class="edu-yr">Jan 2009 — Dec 2010</div></div><div class="edu"><div class="edu-deg">BE — Communication Engineering</div><div class="edu-inst">Kathmandu University, Kavre, Nepal</div><div class="edu-yr">Aug 2002 — Jul 2006</div></div><div class="edu"><div class="edu-deg">Continuous Learning</div><div class="edu-inst">Technology writing since 2011 · Podcasts · Conferences · Webinars</div><div class="edu-yr">Ongoing</div></div></div></div></section>
+<section class="z" style="padding-top:0;padding-bottom:100px"><div class="wrap"><div class="sec-head"><div class="sec-num">08</div><h2 class="sec-title">Leadership</h2><div class="sec-rule"></div></div><div class="lead-grid"><div class="lead"><div class="lead-role">Central Executive Member</div><div class="lead-org">Micro, Small &amp; Medium Enterprises Association (MSME), Nepal</div><div class="lead-yr">2022 — Present</div></div><div class="lead"><div class="lead-role">Central Secretary &amp; Chair, International Relations Committee</div><div class="lead-org">Federation of Nepali Consumer Protection (FNCP), Nepal</div><div class="lead-yr">Jul 2022 — Jul 2023</div></div><div class="lead"><div class="lead-role">Executive Board Member</div><div class="lead-org">Global Nepali Professional Network, USA</div><div class="lead-yr">2018 — 2022</div></div><div class="lead"><div class="lead-role">President</div><div class="lead-org">Bibeksheel Nepali Dal, USA</div><div class="lead-yr">2018 — 2021</div></div><div class="lead"><div class="lead-role">President</div><div class="lead-org">Society of Electrical and Electronics Engineers, Kathmandu University</div><div class="lead-yr">Aug 2005 — Jul 2006</div></div><div class="lead"><div class="lead-role">Student Member</div><div class="lead-org">SPIE (Oct 2008 – Sep 2009) · IEEE (Sept 2008 – Aug 2009)</div><div class="lead-yr">2008 — 2009</div></div></div></div></section>
 
 <!-- CONTACT -->
 <div class="contact-band z" id="contact">
@@ -591,7 +389,6 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer class="z">
   <div class="fin">
     <div class="copy">© 2025 <span>Bijaya Gautam</span> · bijaya1.github.io/bijaya1</div>
