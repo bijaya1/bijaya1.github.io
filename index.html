@@ -187,11 +187,25 @@
   @keyframes fadeIn{from{opacity:0}to{opacity:1}}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
   @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* MEDIA */
+  .media-intro{font-size:15.5px;color:var(--text);line-height:1.88;max-width:680px;border-left:2px solid var(--amber-dim);padding-left:20px;margin-bottom:52px}
+  .media-intro strong{color:var(--text-bright);font-weight:500}
+  .media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+  .media-card{background:var(--bg);padding:32px;transition:background .2s;display:flex;flex-direction:column;gap:18px}
+  .media-card:hover{background:var(--surface)}
+  .media-num{font-family:var(--mono);font-size:10px;color:var(--amber);letter-spacing:.2em;display:flex;align-items:center;gap:8px}
+  .media-num::after{content:'';flex:1;height:1px;background:var(--border)}
+  .media-embed{position:relative;width:100%;padding-top:56.25%;border:1px solid var(--border);overflow:hidden}
+  .media-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+  .media-label{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--text-bright);line-height:1.3}
+  .media-sub{font-family:var(--mono);font-size:10px;color:var(--amber-dim);letter-spacing:.1em}
+  .media-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--amber);text-decoration:none;letter-spacing:.12em;transition:opacity .2s;margin-top:auto}
+  .media-link:hover{opacity:.7}
   /* RESPONSIVE */
   @media(max-width:900px){
     .hero-inner{grid-template-columns:1fr}
     .photo-frame{display:none}
-    .about-grid,.exp-grid,.thought-layout,.edu-grid,.lead-grid,.contact-in{grid-template-columns:1fr}
+    .about-grid,.exp-grid,.thought-layout,.edu-grid,.lead-grid,.media-grid,.contact-in{grid-template-columns:1fr}
     .phd-panel{grid-template-columns:1fr;padding:32px}
     .exp-grid{background:none;gap:1px}
     .exp-card{border:1px solid var(--border)}
@@ -218,6 +232,7 @@
       <li><a href="#research">Research</a></li>
       <li><a href="#thinking">Thinking</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#media">Media</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -255,7 +270,7 @@
       <!-- Put your photo file (named photo.jpg) in the same folder as index.html -->
       <div class="photo-frame">
         <div class="photo-wrap">
-          <img src="IMG_4203.jpeg" alt="Bijaya Gautam">
+          <img src="profile_picture.jpg" alt="Bijaya Gautam">
           <div class="photo-corner">bijayagautam</div>
         </div>
       </div>
@@ -372,7 +387,7 @@
         <div class="tl-org"><a href="https://podcasts.apple.com/us/podcast/977podcast/id1498394418" target="_blank" rel="noopener" style="color:var(--amber-dim);text-decoration:none">977podcast</a> · Apple Podcasts</div>
         <div style="display:flex;gap:24px;align-items:flex-start;margin-top:12px;flex-wrap:wrap">
           <a href="https://podcasts.apple.com/us/podcast/977podcast/id1498394418" target="_blank" rel="noopener" style="flex-shrink:0">
-            <img src="1778005356311_image.png" alt="977podcast cover art" style="width:110px;height:110px;object-fit:cover;border:1px solid var(--border);display:block;transition:opacity .2s" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+            <img src="977podcast_thumbnail.png" alt="977podcast cover art" style="width:110px;height:110px;object-fit:cover;border:1px solid var(--border);display:block;transition:opacity .2s" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
           </a>
           <div>
             <p class="tl-desc" style="margin-top:0">Co-hosted and produced 977podcast with Sanjay Rimal — 13 long-form episodes of thought-provoking conversation about Nepal and Nepali people, available on Apple Podcasts. The name is a nod to Nepal's international dialing code (+977). Episodes explored a wide range of topics: cryptocurrency policy, post-insurgency politics, social justice, media literacy, cannabis decriminalization, youth in democracy, and Nepali identity and culture. Each conversation ran between one and two hours, prioritising depth and candour over soundbites.</p>
@@ -616,6 +631,39 @@
       <div class="lead"><div class="lead-role">President</div><div class="lead-org">Bibeksheel Nepali Dal, USA</div><div class="lead-yr">2018 — 2021</div></div>
       <div class="lead"><div class="lead-role">President</div><div class="lead-org">Society of Electrical and Electronics Engineers, Kathmandu University</div><div class="lead-yr">Aug 2005 — Jul 2006</div></div>
       <div class="lead"><div class="lead-role">Student Member</div><div class="lead-org">SPIE (Oct 2008 – Sep 2009) · IEEE (Sept 2008 – Aug 2009)</div><div class="lead-yr">2008 — 2009</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA APPEARANCES -->
+<section id="media" class="z">
+  <div class="wrap">
+    <div class="sec-head"><div class="sec-num">09</div><h2 class="sec-title">Media Appearances</h2><div class="sec-rule"></div></div>
+    <p class="media-intro">
+      Over the years I have joined conversations on <strong>technology, entrepreneurship, policy, and Nepal's digital future</strong> across various media platforms. These appearances reflect the ideas I care most about — building capable systems, enabling governance, and unlocking human potential through better institutions.
+    </p>
+    <div class="media-grid">
+
+      <div class="media-card">
+        <div class="media-num">01</div>
+        <div class="media-embed">
+          <iframe src="https://www.youtube.com/embed/TCGnpwHjAA4" title="Media Appearance 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="media-label">Interview — YouTube</div>
+        <div class="media-sub">YouTube · Video Interview</div>
+        <a class="media-link" href="https://youtu.be/TCGnpwHjAA4" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+      </div>
+
+      <div class="media-card">
+        <div class="media-num">02</div>
+        <div class="media-embed">
+          <iframe src="https://www.youtube.com/embed/6RAumweVMBA" title="Media Appearance 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="media-label">Interview — YouTube</div>
+        <div class="media-sub">YouTube · Video Interview</div>
+        <a class="media-link" href="https://youtu.be/6RAumweVMBA" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+      </div>
+
     </div>
   </div>
 </section>
